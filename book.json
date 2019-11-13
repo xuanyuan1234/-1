@@ -1,0 +1,88 @@
+{
+    "title": "学习笔记",
+    "description": "好记性不如烂笔头",
+    "author": "zxw",
+    "output.name": "site",
+    "language": "zh-hans",
+    "gitbook": "3.2.3",
+    "root": ".",
+    "links": {
+        "sidebar": {
+            "首页": "http://localhost:4000"
+        }
+    },
+    "plugins": [
+        "theme-comscore",
+        "expandable-chapters-small",
+        "-fontsettings",
+        "code",
+        "copy-code-button",
+        "-search",
+        "alerts",
+        "flexible-alerts",
+        "search-pro",
+        "splitter",
+        "tbfed-pagefooter",
+        "-sharing",
+        "sharing-plus",
+        "prism",
+        "-lunr",
+        "-highlight",
+        "styles-less",
+        "toggle-chapters",
+        "multipart",
+        "ancre-navigation",
+        "pageview-count",
+        "popup"
+    ],
+    "pluginsConfig": {
+        "theme-default": {
+            "showLevel": true
+        },
+        "fontsettings": {
+            "theme": "white",
+            "family": "serif",
+            "size": 12
+        },
+        "flexible-alerts": {
+            "style": "callout",
+            "comment": {
+              "label": "Comment",
+              "icon": "fa fa-comments",
+              "className": "info"
+            }
+        },
+        "simple-page-toc": {
+            "maxDepth": 3,
+            "skipFirstH1": true
+        },
+        "code": {
+            "copyButtons": true
+        },
+        "tbfed-pagefooter": {
+            "copyright": "Copyright © zxw 2019",
+            "modify_label": "本书发布时间：",
+            "modify_format": "YYYY-MM-DD HH:mm:ss"
+        },
+        "sharing": {
+            "facebook": true,
+            "twitter": true,
+            "weibo": true,
+            "qq": true,
+            "all": [
+                "douban",
+                "google",
+                "qzone",
+                "linkedin"
+            ]
+        },
+        "prism": {
+            "css": [
+                "prismjs/themes/prism-solarizedlight.css"
+            ],
+            "lang": {
+                "flow": "typescript"
+            }
+        }
+    }
+}

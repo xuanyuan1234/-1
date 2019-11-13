@@ -1,0 +1,966 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>volatie · 学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="zxw">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-multipart/multipart.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="cas.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://localhost:4000" target="_blank" class="custom-link">首页</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    面试点
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    JUC
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1.1" data-path="volatie.html">
+            
+                <a href="volatie.html">
+            
+                    
+                        <b>1.2.1.1.</b>
+                    
+                    volatie
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="cas.html">
+            
+                <a href="cas.html">
+            
+                    
+                        <b>1.2.1.2.</b>
+                    
+                    CAS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="collection.html">
+            
+                <a href="collection.html">
+            
+                    
+                        <b>1.2.1.3.</b>
+                    
+                    集合类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="heap_stack.html">
+            
+                <a href="heap_stack.html">
+            
+                    
+                        <b>1.2.1.4.</b>
+                    
+                    堆栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../lock/">
+            
+                <a href="../lock/">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    锁
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../lock/fair.html">
+            
+                <a href="../lock/fair.html">
+            
+                    
+                        <b>1.2.2.1.</b>
+                    
+                    公平锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../lock/reentrantLock.html">
+            
+                <a href="../lock/reentrantLock.html">
+            
+                    
+                        <b>1.2.2.2.</b>
+                    
+                    可重入锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../lock/spinlock.html">
+            
+                <a href="../lock/spinlock.html">
+            
+                    
+                        <b>1.2.2.3.</b>
+                    
+                    自旋锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../lock/readwritelock.html">
+            
+                <a href="../lock/readwritelock.html">
+            
+                    
+                        <b>1.2.2.4.</b>
+                    
+                    读写锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../lock/countdownlatch.html">
+            
+                <a href="../lock/countdownlatch.html">
+            
+                    
+                        <b>1.2.2.5.</b>
+                    
+                    倒计时器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../lock/cyclicbarrier.html">
+            
+                <a href="../lock/cyclicbarrier.html">
+            
+                    
+                        <b>1.2.2.6.</b>
+                    
+                    可重用屏障/栅栏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="../lock/semaphore.html">
+            
+                <a href="../lock/semaphore.html">
+            
+                    
+                        <b>1.2.2.7.</b>
+                    
+                    信号量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="../lock/block_queue.html">
+            
+                <a href="../lock/block_queue.html">
+            
+                    
+                        <b>1.2.2.8.</b>
+                    
+                    阻塞队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="../lock/producer_consumer.html">
+            
+                <a href="../lock/producer_consumer.html">
+            
+                    
+                        <b>1.2.2.9.</b>
+                    
+                    生产者+消费者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="../lock/dead_lock.html">
+            
+                <a href="../lock/dead_lock.html">
+            
+                    
+                        <b>1.2.2.10.</b>
+                    
+                    死锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../thread_poll/">
+            
+                <a href="../thread_poll/">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    线程池
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../thread_poll/callable.html">
+            
+                <a href="../thread_poll/callable.html">
+            
+                    
+                        <b>1.2.3.1.</b>
+                    
+                    Callable接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../thread_poll/poll.html">
+            
+                <a href="../thread_poll/poll.html">
+            
+                    
+                        <b>1.2.3.2.</b>
+                    
+                    线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../reference/">
+            
+                <a href="../reference/">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../oom/">
+            
+                <a href="../oom/">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    OOM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../jvm_gc/">
+            
+                <a href="../jvm_gc/">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    JVM+GC
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.6.1" data-path="../jvm_gc/gc.html">
+            
+                <a href="../jvm_gc/gc.html">
+            
+                    
+                        <b>1.2.6.1.</b>
+                    
+                    GC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.2" data-path="../jvm_gc/jvm.html">
+            
+                <a href="../jvm_gc/jvm.html">
+            
+                    
+                        <b>1.2.6.2.</b>
+                    
+                    JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../linux/">
+            
+                <a href="../linux/">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    Linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../github/">
+            
+                <a href="../github/">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    GitHub
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../jvm/">
+            
+                <a href="../../jvm/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    深入理解JVM
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../jvm/mnemonics.html">
+            
+                <a href="../../jvm/mnemonics.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    助记符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../jvm/lesson_1.html">
+            
+                <a href="../../jvm/lesson_1.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    学习1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >volatie</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#volatile"><b></b>volatile</a></li><li><span class="title-icon "></span><a href="#&#x6982;&#x5FF5;"><b></b>&#x6982;&#x5FF5;</a></li><ul><li><span class="title-icon "></span><a href="#&#x4FDD;&#x8BC1;&#x53EF;&#x89C1;&#x6027;"><b></b>&#x4FDD;&#x8BC1;&#x53EF;&#x89C1;&#x6027;</a></li><li><span class="title-icon "></span><a href="#&#x4E0D;&#x4FDD;&#x8BC1;&#x539F;&#x5B50;&#x6027;"><b></b>&#x4E0D;&#x4FDD;&#x8BC1;&#x539F;&#x5B50;&#x6027;</a></li><ul><li><span class="title-icon "></span><a href="#&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x539F;&#x5B50;&#x6027;"><b></b>&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x539F;&#x5B50;&#x6027;</a></li></ul><li><span class="title-icon "></span><a href="#&#x7981;&#x6B62;&#x6307;&#x4EE4;&#x91CD;&#x6392;"><b></b>&#x7981;&#x6B62;&#x6307;&#x4EE4;&#x91CD;&#x6392;</a></li></ul><li><span class="title-icon "></span><a href="#jvm--java&#x865A;&#x62DF;&#x673A;"><b></b>jvm  java&#x865A;&#x62DF;&#x673A;</a></li><li><span class="title-icon "></span><a href="#jmmjava-memory-model-java&#x5185;&#x5B58;&#x6A21;&#x578B;"><b></b>JMM(java Memory Model) java&#x5185;&#x5B58;&#x6A21;&#x578B;</a></li><ul><li><span class="title-icon "></span><a href="#jmm&#x5173;&#x4E8E;&#x540C;&#x6B65;&#x7684;&#x89C4;&#x5B9A;"><b></b>JMM&#x5173;&#x4E8E;&#x540C;&#x6B65;&#x7684;&#x89C4;&#x5B9A;</a></li><ul><li><span class="title-icon "></span><a href="#&#x7279;&#x70B9;"><b></b>&#x7279;&#x70B9;</a></li></ul></ul><li><span class="title-icon "></span><a href="#dcl&#x53CC;&#x7AEF;&#x68C0;&#x9501;&#x673A;&#x5236;"><b></b>DCL(&#x53CC;&#x7AEF;&#x68C0;&#x9501;&#x673A;&#x5236;)</a></li><ul><li><span class="title-icon "></span><a href="#&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x4E0B;&#x7684;-volatile&#x5206;&#x6790;"><b></b>&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x4E0B;&#x7684; volatile&#x5206;&#x6790;</a></li><ul><li><span class="title-icon "></span><a href="#&#x89E3;&#x51B3;&#x65B9;&#x6848;"><b></b>&#x89E3;&#x51B3;&#x65B9;&#x6848;</a></li></ul></ul></ul></div><a href="#volatile" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="volatile"><a name="volatile" class="anchor-navigation-ex-anchor" href="#volatile"><i class="fa fa-link" aria-hidden="true"></i></a>volatile</h1>
+<h1 id="&#x6982;&#x5FF5;"><a name="&#x6982;&#x5FF5;" class="anchor-navigation-ex-anchor" href="#&#x6982;&#x5FF5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6982;&#x5FF5;</h1>
+<p>volatile&#x662F;java&#x865A;&#x62DF;&#x673A;&#x63D0;&#x4F9B;&#x7684;&#x8F7B;&#x91CF;&#x7EA7;&#x7684;&#x540C;&#x6B65;&#x673A;&#x5236;</p>
+<ul>
+<li>&#x4FDD;&#x8BC1;&#x53EF;&#x89C1;&#x6027; &#xFF08;&#x591A;&#x7EBF;&#x7A0B;&#x4E2D;&#xFF0C;&#x67D0;&#x4E2A;&#x7EBF;&#x7A0B;&#x4FEE;&#x6539;&#x4E86;&#x5DE5;&#x4F5C;&#x5185;&#x5B58;&#x4E2D;&#x53D8;&#x91CF;&#x503C;&#xFF0C;&#x5E76;&#x540C;&#x6B65;&#x5230;&#x4E3B;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x503C;&#xFF0C;&#x8BE5;&#x53D8;&#x91CF;&#x503C;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x5BF9;&#x5176;&#x5B83;&#x7EBF;&#x7A0B;&#x662F;&#x53EF;&#x89C1;&#x7684;&#x3002;&#x5176;&#x5B83;&#x7EBF;&#x7A0B;&#x4F7F;&#x7528;&#x8BE5;&#x503C;&#x65F6;&#xFF0C;&#x4F1A;&#x53BB;&#x4E3B;&#x5185;&#x5B58;&#x4E2D;&#x91CD;&#x65B0;&#x83B7;&#x53D6;&#x503C;&#xFF09;</li>
+<li>&#x4E0D;&#x4FDD;&#x8BC1;&#x539F;&#x5B50;&#x6027; &#xFF08;&#x4E0D;&#x53EF;&#x5206;&#x5272;&#xFF0C;&#x5B8C;&#x6574;&#x6027;&#x3002;&#x8981;&#x4E48;&#x5168;&#x90E8;&#x6267;&#x884C;&#xFF0C;&#x8981;&#x4E48;&#x5168;&#x90E8;&#x4E0D;&#x6267;&#x884C;&#xFF09;</li>
+<li>&#x7981;&#x6B62;&#x6307;&#x4EE4;&#x91CD;&#x6392;</li>
+</ul>
+<h2 id="&#x4FDD;&#x8BC1;&#x53EF;&#x89C1;&#x6027;"><a name="&#x4FDD;&#x8BC1;&#x53EF;&#x89C1;&#x6027;" class="anchor-navigation-ex-anchor" href="#&#x4FDD;&#x8BC1;&#x53EF;&#x89C1;&#x6027;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4FDD;&#x8BC1;&#x53EF;&#x89C1;&#x6027;</h2>
+<p>  &#x591A;&#x7EBF;&#x7A0B;&#x4E2D;&#xFF0C;&#x4E3B;&#x5185;&#x5B58;&#x4E2D;&#x53D8;&#x91CF;&#x503C;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x4F1A;&#x901A;&#x77E5;&#x5176;&#x5B83;&#x7EBF;&#x7A0B;&#x3002;&#x5176;&#x5B83;&#x7EBF;&#x7A0B;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x4F1A;&#x91CD;&#x65B0;&#x53BB;&#x4E3B;&#x5185;&#x5B58;&#x4E2D;&#x8FDB;&#x884C;&#x62F7;&#x8D1D;&#x3002;</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">class</span> myData <span class="token punctuation">{</span>
+    <span class="token keyword">volatile</span> <span class="token keyword">int</span> number <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addTo60</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>number <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">showVolatile</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    myData myData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">myData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span><span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot; come in&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>SECONDS<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        myData<span class="token punctuation">.</span><span class="token function">addTo60</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot; update value :&quot;</span> <span class="token operator">+</span> myData<span class="token punctuation">.</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">&quot;AAA&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>myData<span class="token punctuation">.</span>number <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//AAA&#x7EBF;&#x7A0B;&#x4FEE;&#x6539;number&#x540E;&#xFF0C;&#x4F1A;&#x5237;&#x65B0;&#x5230;&#x4E3B;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x5E76;&#x901A;&#x77E5;main&#x7EBF;&#x7A0B;&#x3002;&#x8DF3;&#x51FA;while&#x5FAA;&#x73AF;</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot; value:&quot;</span> <span class="token operator">+</span> myData<span class="token punctuation">.</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="&#x4E0D;&#x4FDD;&#x8BC1;&#x539F;&#x5B50;&#x6027;"><a name="&#x4E0D;&#x4FDD;&#x8BC1;&#x539F;&#x5B50;&#x6027;" class="anchor-navigation-ex-anchor" href="#&#x4E0D;&#x4FDD;&#x8BC1;&#x539F;&#x5B50;&#x6027;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E0D;&#x4FDD;&#x8BC1;&#x539F;&#x5B50;&#x6027;</h2>
+<p>  &#x67D0;&#x4E2A;&#x7EBF;&#x7A0B;&#x5BF9;&#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x7684;&#x503C;&#x4FEE;&#x6539;&#xFF0C;&#x5237;&#x65B0;&#x5230;&#x4E3B;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x540C;&#x65F6;&#x3002;&#x5176;&#x5B83;&#x7EBF;&#x7A0B;&#x88AB;&#x6302;&#x8D77;&#x3002;&#x5F53;&#x5176;&#x5B83;&#x7EBF;&#x7A0B;&#x5524;&#x9192;&#x65F6;&#xFF0C;&#x7531;&#x4E8E;CPU&#x6267;&#x884C;&#x5FEB;&#xFF0C;&#x53D8;&#x91CF;&#x503C;&#x7684;&#x53D8;&#x5316;&#x8FD8;&#x6CA1;&#x6765;&#x5F97;&#x53CA;&#x901A;&#x77E5;&#xFF0C;&#x5176;&#x5B83;&#x7EBF;&#x7A0B;&#x5C31;&#x628A;&#x5404;&#x81EA;&#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x503C;&#x5237;&#x65B0;&#x56DE;&#x4E3B;&#x5185;&#x5B58;&#x3002;<strong>&#x5BFC;&#x81F4;&#x4E3B;&#x5185;&#x5B58;&#x503C;&#x8986;&#x76D6;&#x4E22;&#x5931;</strong></p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">class</span> myData <span class="token punctuation">{</span>
+    <span class="token keyword">volatile</span> <span class="token keyword">int</span> number <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addPlusPlus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        number<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    myData myData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">myData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">20</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+          <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              myData<span class="token punctuation">.</span><span class="token function">addPlusPlus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              myData<span class="token punctuation">.</span><span class="token function">addMyAtomic</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">activeCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//2&#x4EE3;&#x8868;&#xFF0C;&#x540E;&#x53F0;&#x6709;&#x4E00;&#x4E2A; main&#x7EBF;&#x7A0B;&#x548C;GC&#x7EBF;&#x7A0B;&#x3002;&#x5927;&#x4E8E;2&#xFF0C;&#x4EE3;&#x8868;&#x4E0A;&#x8FF0;&#x7EBF;&#x7A0B;&#x8FD8;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x5B8C;&#x6210;&#x3002;</span>
+        <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">yield</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot; Int value:&quot;</span> <span class="token operator">+</span> myData<span class="token punctuation">.</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x503C;&#x4E0D;&#x4E00;&#x5B9A;&#x4E3A;20000&#xFF0C;&#x591A;&#x7EBF;&#x7A0B;&#x8986;&#x76D6;&#x4E22;&#x5931;&#xFF0C;&#x4E0D;&#x4FDD;&#x8BC1;&#x539F;&#x5B50;&#x6027;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot; AtomicInteger value:&quot;</span> <span class="token operator">+</span> myData<span class="token punctuation">.</span>atomicInteger<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//CAS&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#xFF0C;&#x4FDD;&#x8BC1;&#x539F;&#x5B50;&#x6027;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x539F;&#x5B50;&#x6027;"><a name="&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x539F;&#x5B50;&#x6027;" class="anchor-navigation-ex-anchor" href="#&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x539F;&#x5B50;&#x6027;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x539F;&#x5B50;&#x6027;</h3>
+<ul>
+<li>&#x52A0;sync &#xFF08;&#x5982;synchronized&#xFF09;</li>
+<li>&#x4F7F;&#x7528;JUC&#x4E0B;&#x7684;atomicInteger &#xFF08;<strong>&#x53C2;&#x89C1;&#x4E0D;&#x4FDD;&#x8BC1;&#x539F;&#x5B50;&#x6027;&#x793A;&#x4F8B;</strong>&#xFF09;</li>
+</ul>
+<pre class="language-"><code class="lang-java"><span class="token keyword">class</span> myData <span class="token punctuation">{</span>
+    <span class="token keyword">volatile</span> <span class="token keyword">int</span> number <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">AtomicInteger</span> atomicInteger <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AtomicInteger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addMyAtomic</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        atomicInteger<span class="token punctuation">.</span><span class="token function">getAndIncrement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="&#x7981;&#x6B62;&#x6307;&#x4EE4;&#x91CD;&#x6392;"><a name="&#x7981;&#x6B62;&#x6307;&#x4EE4;&#x91CD;&#x6392;" class="anchor-navigation-ex-anchor" href="#&#x7981;&#x6B62;&#x6307;&#x4EE4;&#x91CD;&#x6392;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7981;&#x6B62;&#x6307;&#x4EE4;&#x91CD;&#x6392;</h2>
+<p>volatile&#x5B9E;&#x73B0;<strong>&#x7981;&#x6B62;&#x6307;&#x4EE4;&#x91CD;&#x6392;&#x4F18;&#x5316;</strong>&#xFF0C;&#x4ECE;&#x800C;&#x907F;&#x514D;&#x591A;&#x7EBF;&#x7A0B;&#x73AF;&#x5883;&#x4E0B;&#x7A0B;&#x5E8F;&#x51FA;&#x73B0;&#x4E71;&#x5E8F;&#x6267;&#x884C;&#x7684;&#x73B0;&#x8C61;&#x3002;</p>
+<p>&#x8BA1;&#x7B97;&#x673A;&#x5728;&#x6267;&#x884C;&#x7A0B;&#x5E8F;&#x65F6;&#xFF0C;&#x4E3A;&#x4E86;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x548C;&#x5904;&#x7406;&#x5668;&#x5E38;&#x5E38;&#x4F1A;&#x5BF9;&#x6307;&#x4EE4;&#x505A;&#x91CD;&#x6392;&#xFF0C;&#x4E00;&#x822C;&#x5206;&#x4E3A;&#x4EE5;&#x4E0B;3&#x79CD;&#xFF1A;</p>
+<p><img src="../../assert/view/juc/volatile/1_1.png" alt="&#x6307;&#x4EE4;&#x91CD;&#x6392;"></p>
+<p>&#x5355;&#x7EBF;&#x7A0B;&#x73AF;&#x5883;&#x786E;&#x4FDD;&#x7A0B;&#x5E8F;&#x6700;&#x7EC8;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x548C;&#x4EE3;&#x7801;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x7684;&#x7ED3;&#x679C;&#x4E00;&#x81F4;&#x3002;<br>&#x5904;&#x7406;&#x5668;&#x8FDB;&#x884C;&#x91CD;&#x6392;&#x5E8F;&#x65F6;&#xFF0C;&#x987B;&#x8003;&#x8651;&#x6307;&#x4EE4;&#x95F4;&#x7684;<strong>&#x6570;&#x636E;&#x4F9D;&#x8D56;&#x6027;</strong><br>&#x591A;&#x7EBF;&#x7A0B;&#x73AF;&#x5883;&#x4E2D;&#x7EBF;&#x7A0B;&#x4EA4;&#x66FF;&#x6267;&#x884C;&#xFF0C;&#x7531;&#x4E8E;&#x7F16;&#x8BD1;&#x5668;&#x4F18;&#x5316;&#x91CD;&#x6392;&#x5B58;&#x5728;&#xFF0C;&#x4E24;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x53D8;&#x91CF;&#x80FD;&#x5426;&#x4E00;&#x81F4;&#x662F;&#x65E0;&#x6CD5;&#x786E;&#x5B9A;&#x7684;&#xFF0C;&#x7ED3;&#x679C;&#x65E0;&#x6CD5;&#x9884;&#x6D4B;&#x3002;</p>
+<p>&#x5185;&#x5B58;&#x5C4F;&#x969C;&#xFF08;Memory Barrier&#xFF09;&#xFF0C;&#x53C8;&#x79F0;&#x5185;&#x5B58;&#x6805;&#x680F;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;CPU&#x6307;&#x4EE4;&#x3002;<strong>&#x901A;&#x8FC7;&#x63D2;&#x5165;&#x5185;&#x5B58;&#x5C4F;&#x969C;&#x7981;&#x6B62;&#x5728;&#x5185;&#x5B58;&#x5C4F;&#x969C;&#x524D;&#x540E;&#x7684;&#x6307;&#x4EE4;&#x6267;&#x884C;&#x91CD;&#x6392;&#x5E8F;&#x4F18;&#x5316;</strong>&#x3002;&#x53E6;&#x4E00;&#x4E2A;&#x4F5C;&#x7528;&#xFF1A;&#x5F3A;&#x5236;&#x5237;&#x51FA;&#x5404;&#x79CD;CPU&#x7684;&#x7F13;&#x5B58;&#x6570;&#x636E;&#xFF0C;&#x56E0;&#x4E9B;&#x4EFB;&#x4F55;CPU&#x4E0A;&#x7684;&#x7EBF;&#x7A0B;&#x90FD;&#x80FD;&#x8BFB;&#x53D6;&#x5230;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x7684;&#x6700;&#x65B0;&#x7248;&#x672C;&#x3002;</p>
+<ul>
+<li>&#x5BF9;volatile&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;<strong>&#x52A0;&#x5165;&#x4E00;&#x6761;store&#x5C4F;&#x969C;&#x6307;&#x4EE4;</strong>&#xFF0C;&#x5C06;&#x5DE5;&#x4F5C;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x5171;&#x4EAB;&#x53D8;&#x91CF;&#x503C;&#x5237;&#x65B0;&#x56DE;&#x5230;&#x4E3B;&#x5185;&#x5B58;&#xFF1B;</li>
+<li>&#x5BF9;volatile&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x8BFB;&#x64CD;&#x4F5C;&#xFF0C;<strong>&#x52A0;&#x5165;&#x4E00;&#x6761;load&#x5C4F;&#x969C;&#x6307;&#x4EE4;</strong>&#xFF0C;&#x4ECE;&#x4E3B;&#x5185;&#x5B58;&#x4E2D;&#x8BFB;&#x53D6;&#x5171;&#x4EAB;&#x53D8;&#x91CF;</li>
+</ul>
+<h1 id="jvm--java&#x865A;&#x62DF;&#x673A;"><a name="jvm--java&#x865A;&#x62DF;&#x673A;" class="anchor-navigation-ex-anchor" href="#jvm--java&#x865A;&#x62DF;&#x673A;"><i class="fa fa-link" aria-hidden="true"></i></a>jvm  java&#x865A;&#x62DF;&#x673A;</h1>
+<h1 id="jmmjava-memory-model-java&#x5185;&#x5B58;&#x6A21;&#x578B;"><a name="jmmjava-memory-model-java&#x5185;&#x5B58;&#x6A21;&#x578B;" class="anchor-navigation-ex-anchor" href="#jmmjava-memory-model-java&#x5185;&#x5B58;&#x6A21;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>JMM(java Memory Model) java&#x5185;&#x5B58;&#x6A21;&#x578B;</h1>
+<p>JMM&#x672C;&#x8EAB;&#x662F;&#x4E00;&#x79CD;&#x62BD;&#x8C61;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x5E76;&#x4E0D;&#x771F;&#x5B9E;&#x5B58;&#x5728;&#x3002;&#x5B83;&#x63CF;&#x8FF0;&#x7684;&#x662F;&#x4E00;&#x7EA7;&#x89C4;&#x5219;&#x6216;&#x89C4;&#x8303;&#x3002;&#x901A;&#x8FC7;&#x8FD9;&#x7EC4;&#x89C4;&#x8303;&#x5B9A;&#x4E49;&#x4E86;&#x7A0B;&#x5E8F;&#x4E2D;&#x5404;&#x4E2A;&#x53D8;&#x91CF;(&#x5305;&#x62EC;&#x5B9E;&#x4F8B;&#x5B57;&#x6BB5;&#x3001;&#x9759;&#x6001;&#x5B57;&#x6BB5;&#x548C;&#x6784;&#x6210;&#x6570;&#x7EC4;&#x5BF9;&#x8C61;&#x7684;&#x5143;&#x7D20;)&#x7684;&#x8BBF;&#x95EE;&#x65B9;&#x5F0F;</p>
+<h2 id="jmm&#x5173;&#x4E8E;&#x540C;&#x6B65;&#x7684;&#x89C4;&#x5B9A;"><a name="jmm&#x5173;&#x4E8E;&#x540C;&#x6B65;&#x7684;&#x89C4;&#x5B9A;" class="anchor-navigation-ex-anchor" href="#jmm&#x5173;&#x4E8E;&#x540C;&#x6B65;&#x7684;&#x89C4;&#x5B9A;"><i class="fa fa-link" aria-hidden="true"></i></a>JMM&#x5173;&#x4E8E;&#x540C;&#x6B65;&#x7684;&#x89C4;&#x5B9A;</h2>
+<ul>
+<li>&#x7EBF;&#x7A0B;&#x89E3;&#x9501;&#x524D;&#xFF0C;&#x5FC5;&#x987B;&#x628A;&#x5171;&#x4EAB;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x5237;&#x65B0;&#x56DE;<strong>&#x4E3B;&#x5185;&#x5B58;</strong>  </li>
+<li>&#x7EBF;&#x7A0B;&#x52A0;&#x9501;&#x524D;&#xFF0C;&#x5FC5;&#x987B;&#x8BFB;&#x53D6;&#x4E3B;&#x5185;&#x5B58;&#x7684;&#x6700;&#x65B0;&#x503C;&#x5230;&#x81EA;&#x5DF2;&#x7684;<strong>&#x5DE5;&#x4F5C;&#x5185;&#x5B58;</strong></li>
+<li>&#x52A0;&#x9501;&#x89E3;&#x9501;&#x662F;&#x540C;&#x4E00;&#x628A;&#x9501;  </li>
+</ul>
+<h3 id="&#x7279;&#x70B9;"><a name="&#x7279;&#x70B9;" class="anchor-navigation-ex-anchor" href="#&#x7279;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7279;&#x70B9;</h3>
+<ul>
+<li><strong>&#x53EF;&#x89C1;&#x6027;</strong></li>
+<li><strong>&#x539F;&#x5C0F;&#x6027;</strong></li>
+<li><strong>&#x6709;&#x5E8F;&#x6027;</strong></li>
+</ul>
+<h1 id="dcl&#x53CC;&#x7AEF;&#x68C0;&#x9501;&#x673A;&#x5236;"><a name="dcl&#x53CC;&#x7AEF;&#x68C0;&#x9501;&#x673A;&#x5236;" class="anchor-navigation-ex-anchor" href="#dcl&#x53CC;&#x7AEF;&#x68C0;&#x9501;&#x673A;&#x5236;"><i class="fa fa-link" aria-hidden="true"></i></a>DCL(&#x53CC;&#x7AEF;&#x68C0;&#x9501;&#x673A;&#x5236;)</h1>
+<h2 id="&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x4E0B;&#x7684;-volatile&#x5206;&#x6790;"><a name="&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x4E0B;&#x7684;-volatile&#x5206;&#x6790;" class="anchor-navigation-ex-anchor" href="#&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x4E0B;&#x7684;-volatile&#x5206;&#x6790;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x4E0B;&#x7684; volatile&#x5206;&#x6790;</h2>
+<p>DCL(&#x53CC;&#x7AEF;&#x68C0;&#x9501;)&#x673A;&#x5236;&#x4E0D;&#x4E00;&#x5B9A;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#xFF0C;&#x539F;&#x56E0;&#x662F;&#x6709;&#x6307;&#x4EE4;&#x91CD;&#x6392;&#x5E8F;&#x7684;&#x5B58;&#x5728;&#xFF0C;&#x52A0;&#x5165;volatile&#x53EF;&#x4EE5;&#x7981;&#x4E0A;&#x6307;&#x4EE4;&#x91CD;&#x6392;</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SingletonDemo</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">SingletonDemo</span> instance <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">SingletonDemo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;\t &#x6211;&#x662F;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x6015;&#x8C01;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//DCL(Double check Lock) &#x53CC;&#x7AEF;&#x68C0;&#x9501;&#x673A;&#x5236;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">SingletonDemo</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token class-name">SingletonDemo</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SingletonDemo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//&#x5355;&#x7EBF;&#x7A0B;&#x4E0B;&#x7684;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">SingletonDemo</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SingletonDemo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+              <span class="token class-name">SingletonDemo</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x539F;&#x56E0;&#x5728;&#x4E8E;&#x67D0;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5230;&#x7B2C;&#x4E00;&#x6B21;&#x68C0;&#x6D4B;&#xFF0C;&#x8BFB;&#x53D6;&#x5230;&#x7684;instance&#x4E0D;&#x4E3A;null&#x65F6;&#xFF0C;instance&#x7684;&#x5F15;&#x7528;&#x5BF9;&#x8C61;<strong>&#x53EF;&#x80FD;&#x6CA1;&#x6709;&#x5B8C;&#x6210;&#x521D;&#x59CB;&#x5316;</strong><br>instance = new SingletonDemo();&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x4EE5;&#x4E0B;3&#x6B65;&#x5B8C;&#x6210;&#xFF08;&#x4F2A;&#x4EE3;&#x7801;&#xFF09;</p>
+<ul>
+<li>memory = allocate(); //1&#x3001;&#x5206;&#x914D;&#x5BF9;&#x8C61;&#x5185;&#x5B58;&#x7A7A;&#x95F4;</li>
+<li>instance(memory); //2&#x3001;&#x521D;&#x59CB;&#x5316;&#x5BF9;&#x8C61;</li>
+<li>instance = memory; //3&#x3001;&#x8BBE;&#x7F6E;instance&#x6307;&#x5411;&#x521A;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x5730;&#x5740;&#xFF0C;&#x6B64;&#x65F6;instance!=null</li>
+</ul>
+<p>&#x5176;&#x4E2D;2&#x548C;3<strong>&#x4E0D;&#x5B58;&#x5728;&#x6570;&#x636E;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;</strong>&#xFF0C;&#x65E0;&#x8BBA;&#x91CD;&#x6392;&#x524D;&#x8FD8;&#x662F;&#x91CD;&#x6392;&#x540E;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x5728;<strong>&#x5355;&#x7EBF;&#x7A0B;</strong>&#x4E2D;&#x5E76;&#x6CA1;&#x6709;&#x6539;&#x53D8;&#x3002;&#x56E0;&#x6B64;&#x8FD9;&#x79CD;&#x91CD;&#x6392;&#x4F18;&#x5316;&#x662F;&#x5141;&#x8BB8;&#x7684;&#x3002;</p>
+<ul>
+<li>memory = allocate(); //1&#x3001;&#x5206;&#x914D;&#x5BF9;&#x8C61;&#x5185;&#x5B58;&#x7A7A;&#x95F4;</li>
+<li>instance = memory; //<strong>3</strong>&#x3001;&#x8BBE;&#x7F6E;instance&#x6307;&#x5411;&#x521A;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x5730;&#x5740;&#xFF0C;&#x6B64;&#x65F6;instance!=null&#x3002;&#x4F46;&#x662F;&#x5BF9;&#x8C61;&#x8FD8;&#x6CA1;&#x6709;&#x521D;&#x59CB;&#x5316;&#x5B8C;&#x6210;</li>
+<li>instance(memory); //<strong>2</strong>&#x3001;&#x521D;&#x59CB;&#x5316;&#x5BF9;&#x8C61;</li>
+</ul>
+<font color="red">**&#x6240;&#x6709;&#x5F53;&#x4E00;&#x6761;&#x7EBF;&#x7A0B;&#x8BBF;&#x95EE;instance&#x4E0D;&#x4E3A;null&#x65F6;&#xFF0C;&#x7531;&#x4E8E;instance&#x5B9E;&#x4F8B;&#x672A;&#x5FC5;&#x5DF2;&#x521D;&#x59CB;&#x5316;&#x5B8C;&#x6210;&#xFF0C;&#x4E5F;&#x5C31;&#x9020;&#x6210;&#x4E86;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x95EE;&#x9898;&#x3002;**</font>
+
+<h3 id="&#x89E3;&#x51B3;&#x65B9;&#x6848;"><a name="&#x89E3;&#x51B3;&#x65B9;&#x6848;" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x51B3;&#x65B9;&#x6848;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x51B3;&#x65B9;&#x6848;</h3>
+<p>&#x5728;instance&#x5B9A;&#x4E49;&#x5904;&#xFF0C;&#x52A0;&#x4E0A;volatile&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x7981;&#x6B62;&#x6307;&#x4EE4;&#x91CD;&#x6392;&#x3002;</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">volatile</span> <span class="token class-name">SingletonDemo</span> instance <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+</code></pre>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; zxw 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x672C;&#x4E66;&#x53D1;&#x5E03;&#x65F6;&#x95F4;&#xFF1A;
+2019-10-20 21:48:28
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: JUC">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="cas.html" class="navigation navigation-next " aria-label="Next page: CAS">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"volatie","level":"1.2.1.1","depth":3,"next":{"title":"CAS","level":"1.2.1.2","depth":3,"path":"view/juc/cas.md","ref":"view/juc/cas.md","articles":[]},"previous":{"title":"JUC","level":"1.2.1","depth":2,"path":"view/juc/README.md","ref":"view/juc/README.md","articles":[{"title":"volatie","level":"1.2.1.1","depth":3,"path":"view/juc/volatie.md","ref":"view/juc/volatie.md","articles":[]},{"title":"CAS","level":"1.2.1.2","depth":3,"path":"view/juc/cas.md","ref":"view/juc/cas.md","articles":[]},{"title":"集合类","level":"1.2.1.3","depth":3,"path":"view/juc/collection.md","ref":"view/juc/collection.md","articles":[]},{"title":"堆栈","level":"1.2.1.4","depth":3,"path":"view/juc/heap_stack.md","ref":"view/juc/heap_stack.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-comscore","expandable-chapters-small","-fontsettings","code","copy-code-button","-search","alerts","flexible-alerts","search-pro","splitter","tbfed-pagefooter","-sharing","sharing-plus","prism","-lunr","-highlight","styles-less","toggle-chapters","multipart","ancre-navigation","pageview-count","popup","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © zxw 2019","modify_label":"本书发布时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"],"lang":{"flow":"typescript"}},"styles-less":{},"livereload":{},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"multipart":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"serif","size":12},"theme-comscore":{},"pageview-count":{},"alerts":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"expandable-chapters-small":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"},"comment":{"label":"Comment","icon":"fa fa-comments","className":"info"}},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"weibo":true,"qq":true,"all":["douban","google","qzone","linkedin"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"toggle-chapters":{}},"theme":"default","author":"zxw","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习笔记","language":"zh-hans","output.name":"site","links":{"sidebar":{"首页":"http://localhost:4000"}},"gitbook":"3.2.3","description":"好记性不如烂笔头"},"file":{"path":"view/juc/volatie.md","mtime":"2019-10-20T13:48:28.911Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-13T14:19:35.130Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

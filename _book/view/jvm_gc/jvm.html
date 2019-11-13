@@ -1,0 +1,870 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>JVM · 学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="zxw">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-multipart/multipart.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../linux/" />
+    
+    
+    <link rel="prev" href="gc.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://localhost:4000" target="_blank" class="custom-link">首页</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    面试点
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../juc/">
+            
+                <a href="../juc/">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    JUC
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../juc/volatie.html">
+            
+                <a href="../juc/volatie.html">
+            
+                    
+                        <b>1.2.1.1.</b>
+                    
+                    volatie
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../juc/cas.html">
+            
+                <a href="../juc/cas.html">
+            
+                    
+                        <b>1.2.1.2.</b>
+                    
+                    CAS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../juc/collection.html">
+            
+                <a href="../juc/collection.html">
+            
+                    
+                        <b>1.2.1.3.</b>
+                    
+                    集合类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="../juc/heap_stack.html">
+            
+                <a href="../juc/heap_stack.html">
+            
+                    
+                        <b>1.2.1.4.</b>
+                    
+                    堆栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../lock/">
+            
+                <a href="../lock/">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    锁
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../lock/fair.html">
+            
+                <a href="../lock/fair.html">
+            
+                    
+                        <b>1.2.2.1.</b>
+                    
+                    公平锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../lock/reentrantLock.html">
+            
+                <a href="../lock/reentrantLock.html">
+            
+                    
+                        <b>1.2.2.2.</b>
+                    
+                    可重入锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../lock/spinlock.html">
+            
+                <a href="../lock/spinlock.html">
+            
+                    
+                        <b>1.2.2.3.</b>
+                    
+                    自旋锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../lock/readwritelock.html">
+            
+                <a href="../lock/readwritelock.html">
+            
+                    
+                        <b>1.2.2.4.</b>
+                    
+                    读写锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../lock/countdownlatch.html">
+            
+                <a href="../lock/countdownlatch.html">
+            
+                    
+                        <b>1.2.2.5.</b>
+                    
+                    倒计时器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../lock/cyclicbarrier.html">
+            
+                <a href="../lock/cyclicbarrier.html">
+            
+                    
+                        <b>1.2.2.6.</b>
+                    
+                    可重用屏障/栅栏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="../lock/semaphore.html">
+            
+                <a href="../lock/semaphore.html">
+            
+                    
+                        <b>1.2.2.7.</b>
+                    
+                    信号量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="../lock/block_queue.html">
+            
+                <a href="../lock/block_queue.html">
+            
+                    
+                        <b>1.2.2.8.</b>
+                    
+                    阻塞队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="../lock/producer_consumer.html">
+            
+                <a href="../lock/producer_consumer.html">
+            
+                    
+                        <b>1.2.2.9.</b>
+                    
+                    生产者+消费者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="../lock/dead_lock.html">
+            
+                <a href="../lock/dead_lock.html">
+            
+                    
+                        <b>1.2.2.10.</b>
+                    
+                    死锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../thread_poll/">
+            
+                <a href="../thread_poll/">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    线程池
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../thread_poll/callable.html">
+            
+                <a href="../thread_poll/callable.html">
+            
+                    
+                        <b>1.2.3.1.</b>
+                    
+                    Callable接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../thread_poll/poll.html">
+            
+                <a href="../thread_poll/poll.html">
+            
+                    
+                        <b>1.2.3.2.</b>
+                    
+                    线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../reference/">
+            
+                <a href="../reference/">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../oom/">
+            
+                <a href="../oom/">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    OOM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    JVM+GC
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.6.1" data-path="gc.html">
+            
+                <a href="gc.html">
+            
+                    
+                        <b>1.2.6.1.</b>
+                    
+                    GC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.6.2" data-path="jvm.html">
+            
+                <a href="jvm.html">
+            
+                    
+                        <b>1.2.6.2.</b>
+                    
+                    JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../linux/">
+            
+                <a href="../linux/">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    Linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../github/">
+            
+                <a href="../github/">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    GitHub
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../jvm/">
+            
+                <a href="../../jvm/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    深入理解JVM
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../jvm/mnemonics.html">
+            
+                <a href="../../jvm/mnemonics.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    助记符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../jvm/lesson_1.html">
+            
+                <a href="../../jvm/lesson_1.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    学习1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >JVM</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#jvm"><b></b>JVM</a></li><ul><li><span class="title-icon "></span><a href="#jvm&#x5185;&#x5B58;&#x7ED3;&#x6784;"><b></b>JVM&#x5185;&#x5B58;&#x7ED3;&#x6784;</a></li><ul><li><span class="title-icon "></span><a href="#jvm&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x6982;&#x89C8;"><b></b>JVM&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x6982;&#x89C8;</a></li><li><span class="title-icon "></span><a href="#jdk8&#x4EE5;&#x540E;&#x7684;jvm"><b></b>Jdk8&#x4EE5;&#x540E;&#x7684;JVM</a></li></ul><li><span class="title-icon "></span><a href="#jvm&#x8C03;&#x4F18;&#x53CA;&#x53C2;&#x6570;&#x914D;&#x7F6E;"><b></b>JVM&#x8C03;&#x4F18;&#x53CA;&#x53C2;&#x6570;&#x914D;&#x7F6E;</a></li><ul><li><span class="title-icon "></span><a href="#jvm&#x53C2;&#x6570;&#x7C7B;&#x578B;"><b></b>JVM&#x53C2;&#x6570;&#x7C7B;&#x578B;</a></li></ul><li><span class="title-icon "></span><a href="#&#x3000;&#x67E5;&#x770B;jvm&#x5BB6;&#x5E95;&#x53C2;&#x6570;&#xFF08;&#x91CD;&#x8981;&#xFF09;"><b></b>&#x3000;&#x67E5;&#x770B;JVM&#x5BB6;&#x5E95;&#x53C2;&#x6570;&#xFF08;&#x91CD;&#x8981;&#xFF09;</a></li><ul><li><span class="title-icon "></span><a href="#java--xxprintflagsinitial--version-&#xFF08;&#x67E5;&#x770B;&#x9ED8;&#x8BA4;&#x503C;&#xFF09;"><b></b>java -XX:+PrintFlagsInitial -version &#xFF08;&#x67E5;&#x770B;&#x9ED8;&#x8BA4;&#x503C;&#xFF09;</a></li><li><span class="title-icon "></span><a href="#java--xxprintflagsfinal--version-&#xFF08;&#x67E5;&#x770B;&#x4FEE;&#x6539;&#x66F4;&#x65B0;&#xFF09;"><b></b>java -XX:+PrintFlagsFinal -version &#xFF08;&#x67E5;&#x770B;&#x4FEE;&#x6539;&#x66F4;&#x65B0;&#xFF09;</a></li><li><span class="title-icon "></span><a href="#xxprintcommandlineflags"><b></b>-XX:+PrintCommandLineFlags</a></li></ul></ul></ul></div><a href="#jvm" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="jvm"><a name="jvm" class="anchor-navigation-ex-anchor" href="#jvm"><i class="fa fa-link" aria-hidden="true"></i></a>JVM</h1>
+<h2 id="jvm&#x5185;&#x5B58;&#x7ED3;&#x6784;"><a name="jvm&#x5185;&#x5B58;&#x7ED3;&#x6784;" class="anchor-navigation-ex-anchor" href="#jvm&#x5185;&#x5B58;&#x7ED3;&#x6784;"><i class="fa fa-link" aria-hidden="true"></i></a>JVM&#x5185;&#x5B58;&#x7ED3;&#x6784;</h2>
+<h3 id="jvm&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x6982;&#x89C8;"><a name="jvm&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x6982;&#x89C8;" class="anchor-navigation-ex-anchor" href="#jvm&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x6982;&#x89C8;"><i class="fa fa-link" aria-hidden="true"></i></a>JVM&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x6982;&#x89C8;</h3>
+<p><img src="../../assert/view/jvm_gc/jvm/1_1.png" alt="JVM&#x4F53;&#x7CFB;&#x7ED3;&#x6784;"></p>
+<ul>
+<li>&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#xFF0C;&#x5206;&#x4E3A;4&#x79CD;&#x3002;&#x542F;&#x52A8;&#x7C7B;&#xFF08;&#x6839;&#xFF09;&#x3001;&#x6269;&#x5C55;&#x7C7B;&#x3001;&#x5E94;&#x7528;&#x7C7B;&#x3001;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x3002;</li>
+<li>&#x56FE;&#x4E2D;&#x7070;&#x8272;&#x7684;&#xFF0C;&#x7EBF;&#x7A0B;&#x79C1;&#x6709;&#xFF0C;&#x51E0;&#x4E4E;&#x4E0D;&#x5B58;&#x5728;GC&#x3002;</li>
+<li>GC&#x4F5C;&#x7528;&#x57DF;&#xFF1A;&#x6A59;&#x8272;&#x90E8;&#x5206;&#x3002;&#x5927;&#x6982;&#x7387;&#x5B58;&#x5728;GC&#x3002;</li>
+</ul>
+<h3 id="jdk8&#x4EE5;&#x540E;&#x7684;jvm"><a name="jdk8&#x4EE5;&#x540E;&#x7684;jvm" class="anchor-navigation-ex-anchor" href="#jdk8&#x4EE5;&#x540E;&#x7684;jvm"><i class="fa fa-link" aria-hidden="true"></i></a>Jdk8&#x4EE5;&#x540E;&#x7684;JVM</h3>
+<p>&#x79FB;&#x9664;&#x4E86; Permanent Generatien for VM metadata<br>&#x6DFB;&#x52A0;&#x4E86; Metaspace VM Metadata in native memory</p>
+<p><img src="../../assert/view/jvm_gc/jvm/1_3.png" alt="JVM&#x4F53;&#x7CFB;&#x7ED3;&#x6784;"></p>
+<h2 id="jvm&#x8C03;&#x4F18;&#x53CA;&#x53C2;&#x6570;&#x914D;&#x7F6E;"><a name="jvm&#x8C03;&#x4F18;&#x53CA;&#x53C2;&#x6570;&#x914D;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#jvm&#x8C03;&#x4F18;&#x53CA;&#x53C2;&#x6570;&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>JVM&#x8C03;&#x4F18;&#x53CA;&#x53C2;&#x6570;&#x914D;&#x7F6E;</h2>
+<h3 id="jvm&#x53C2;&#x6570;&#x7C7B;&#x578B;"><a name="jvm&#x53C2;&#x6570;&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#jvm&#x53C2;&#x6570;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>JVM&#x53C2;&#x6570;&#x7C7B;&#x578B;</h3>
+<h4 id="&#x6807;&#x914D;&#x53C2;&#x6570;"><a name="&#x6807;&#x914D;&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x6807;&#x914D;&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6807;&#x914D;&#x53C2;&#x6570;</h4>
+<ul>
+<li>-version</li>
+<li>-help</li>
+<li>java -showversion</li>
+</ul>
+<h4 id="x&#x53C2;&#x6570;&#xFF08;&#x4E86;&#x89E3;&#xFF09;"><a name="x&#x53C2;&#x6570;&#xFF08;&#x4E86;&#x89E3;&#xFF09;" class="anchor-navigation-ex-anchor" href="#x&#x53C2;&#x6570;&#xFF08;&#x4E86;&#x89E3;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>X&#x53C2;&#x6570;&#xFF08;&#x4E86;&#x89E3;&#xFF09;</h4>
+<ul>
+<li>-Xint: &#x89E3;&#x91CA;&#x6267;&#x884C;</li>
+<li>-Xcomp: &#x7B2C;&#x4E00;&#x6B21;&#x4F7F;&#x7528;&#x5C31;&#x7F16;&#x8BD1;&#x6210;&#x672C;&#x5730;&#x4EE3;&#x7801;</li>
+<li>-Xmixed: &#x6DF7;&#x5408;&#x6A21;&#x5F0F; &#xFF08;java&#x9ED8;&#x8BA4;&#xFF09;</li>
+</ul>
+<p><img src="../../assert/view/jvm_gc/jvm/1_2.png" alt="JVM&#x4F53;&#x7CFB;&#x7ED3;&#x6784;"></p>
+<h4 id="xx&#x53C2;&#x6570;-&#x91CD;&#x70B9;"><a name="xx&#x53C2;&#x6570;-&#x91CD;&#x70B9;" class="anchor-navigation-ex-anchor" href="#xx&#x53C2;&#x6570;-&#x91CD;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>XX&#x53C2;&#x6570; (&#x91CD;&#x70B9;)</h4>
+<h5 id="boolean&#x7C7B;&#x578B;"><a name="boolean&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#boolean&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>Boolean&#x7C7B;&#x578B;</h5>
+<ul>
+<li>&#x516C;&#x5F0F;&#xFF1A;-XX:+&#x6216;&#x8005;-&#x67D0;&#x4E2A;&#x5C5E;&#x6027;&#x503C;  &#xFF08;+&#x8868;&#x793A;&#x5F00;&#x542F;&#xFF0C;-&#x8868;&#x793A;&#x5173;&#x95ED;&#xFF09;</li>
+<li><p>&#x662F;&#x5426;&#x6253;&#x5370;GC&#x6536;&#x96C6;&#x7EC6;&#x8282;<br>jinfo -flag PrintGCDetails 13632</p>
+<p>-XX:+PrintGCDetails<br>-XX:-PrintGCDetails</p>
+</li>
+<li>&#x662F;&#x5426;&#x4F7F;&#x7528;&#x4E32;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;<br>-XX:+UseSerialGC<br>-XX:-UseSerialGC</li>
+</ul>
+<h5 id="kv&#x8BBE;&#x503C;&#x7C7B;&#x578B;"><a name="kv&#x8BBE;&#x503C;&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#kv&#x8BBE;&#x503C;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>KV&#x8BBE;&#x503C;&#x7C7B;&#x578B;</h5>
+<ul>
+<li>&#x516C;&#x5F0F;&#xFF1A;-XX:&#x5C5E;&#x6027;key=&#x5C5E;&#x6027;&#x503C;value</li>
+<li><p>&#x914D;&#x7F6E;&#x5143;&#x7A7A;&#x95F4;
+jinfo -flag MetaspaceSize 4300</p>
+<p>-XX:MetaspaceSize=128m</p>
+</li>
+<li>&#x65B0;&#x751F;&#x4EE3;&#x8001;&#x5E74;&#x4EE3;&#x4EA4;&#x6362;&#x6B21;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;15&#x6B21;
+-XX:MaxTenuringThreshold=15</li>
+</ul>
+<h5 id="jinfo&#x4E3E;&#x4F8B;"><a name="jinfo&#x4E3E;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#jinfo&#x4E3E;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>jinfo&#x4E3E;&#x4F8B;</h5>
+<p>&#x5982;&#x4F55;&#x67E5;&#x770B;&#x5F53;&#x524D;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x7684;&#x914D;&#x7F6E;<br>jinfo -flag &#x914D;&#x7F6E;&#x9879; &#x8FDB;&#x7A0B;&#x7F16;&#x53F7;</p>
+<ul>
+<li>jps -l    jinfo -flag InitialHeapSize pid</li>
+<li>jinfo -flags pid</li>
+</ul>
+<h5 id="&#x9898;&#x5916;&#x8BDD;&#xFF08;&#x5751;&#x9898;&#xFF09;"><a name="&#x9898;&#x5916;&#x8BDD;&#xFF08;&#x5751;&#x9898;&#xFF09;" class="anchor-navigation-ex-anchor" href="#&#x9898;&#x5916;&#x8BDD;&#xFF08;&#x5751;&#x9898;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9898;&#x5916;&#x8BDD;&#xFF08;&#x5751;&#x9898;&#xFF09;</h5>
+<p>&#x6808;&#x7BA1;&#x8FD0;&#x884C;&#xFF0C;&#x5806;&#x7BA1;&#x5B58;&#x50A8;</p>
+<ul>
+<li>-Xms: &#x7B49;&#x4EF7;&#x4E8E; -XX:initialHeapSize &#x521D;&#x59CB;&#x5927;&#x5C0F;&#x5185;&#x5B58; &#x9ED8;&#x8BA4;&#x4E3A;&#x7269;&#x7406;&#x5185;&#x5B58;&#x7684;1/64</li>
+<li>-Xmx: &#x7B49;&#x4EF7;&#x4E8E; -XX:MaxHeapSize &#x6700;&#x5927;&#x5206;&#x914D;&#x5185;&#x5B58; &#x9ED8;&#x8BA4;&#x4E3A;&#x7269;&#x7406;&#x5185;&#x5B58;&#x7684;1/4</li>
+<li>-Xss: &#x7B49;&#x4EF7;&#x4E8E; -XX:ThreadStackSize &#x8BBE;&#x7F6E;&#x5355;&#x4E2A;&#x7EBF;&#x7A0B;&#x6808;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x4E00;&#x822C;&#x9ED8;&#x8BA4;&#x4E3A;512K~1024K  (=0&#xFF0C;&#x4EE3;&#x8868;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x4F9D;&#x8D56;&#x4E8E;&#x5E73;&#x53F0;&#xFF0C;&#x53C2;&#x89C1;<a href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html" target="_blank">&#x5B98;&#x7F51;</a>)</li>
+<li>-Xmn: &#x7B49;&#x4EF7;&#x4E8E; &#x8BBE;&#x7F6E;&#x5E74;&#x8F7B;&#x4EE3;&#x5927;&#x5C0F;</li>
+</ul>
+<hr>
+<ul>
+<li>-XX:MetaspaceSize: &#x5143;&#x7A7A;&#x95F4;&#xFF08;&#x4E0D;&#x5728;&#x865A;&#x62DF;&#x673A;&#x4E2D;&#xFF0C;&#x800C;&#x662F;&#x4F7F;&#x7528;&#x672C;&#x5730;&#x5185;&#x5B58;&#xFF09;</li>
+<li>-XX:PrintGCDetails: &#x8F93;&#x51FA;&#x8BE6;&#x7EC6;GC&#x6536;&#x96C6;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;</li>
+<li>-XX:SurvivorRatio: &#x8BBE;&#x7F6E;&#x65B0;&#x751F;&#x4EE3;&#x4E2D;eden&#x548C;S0/S1&#x7A7A;&#x95F4;&#x7684;&#x6BD4;&#x4F8B;&#x3002;&#x9ED8;&#x8BA4;-XX:SurvivorRatio=8&#xFF0C;Eden:S0:S1=8:1:1&#x3002;&#x8BBE;&#x7F6E;eden&#x7684;&#x6BD4;&#x4F8B;&#x591A;&#x5C11;&#xFF0C;S0&#x3001;S1&#x6BD4;&#x4F8B;&#x76F8;&#x540C;&#x3002;</li>
+<li>-XX:NewRatio&#xFF1A; &#x8BBE;&#x7F6E;&#x8001;&#x5E74;&#x4EE3;&#x7684;&#x5360;&#x7ECF;&#xFF0C;&#x5269;&#x4E0B;&#x7684;1&#x7ED9;&#x65B0;&#x751F;&#x4EE3;&#x3002;&#x5982;NewRatio=2&#xFF0C;&#x5219;&#x65B0;&#x751F;&#x4EE3;&#x5360;1&#xFF0C;&#x8001;&#x5E74;&#x4EE3;&#x5360;2&#x3002;</li>
+<li>-XX:MaxTenuringThreshold&#xFF1A;&#x9ED8;&#x8BA4;&#x503C;15&#xFF0C;&#x8BBE;&#x7F6E;&#x65B0;&#x751F;&#x4EE3;&#x8F6C;&#x4E3A;&#x8001;&#x5E74;&#x4EE3;&#x7684;&#x9600;&#x503C;&#x3002;</li>
+</ul>
+<h2 id="&#x3000;&#x67E5;&#x770B;jvm&#x5BB6;&#x5E95;&#x53C2;&#x6570;&#xFF08;&#x91CD;&#x8981;&#xFF09;"><a name="&#x3000;&#x67E5;&#x770B;jvm&#x5BB6;&#x5E95;&#x53C2;&#x6570;&#xFF08;&#x91CD;&#x8981;&#xFF09;" class="anchor-navigation-ex-anchor" href="#&#x3000;&#x67E5;&#x770B;jvm&#x5BB6;&#x5E95;&#x53C2;&#x6570;&#xFF08;&#x91CD;&#x8981;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3000;&#x67E5;&#x770B;JVM&#x5BB6;&#x5E95;&#x53C2;&#x6570;&#xFF08;&#x91CD;&#x8981;&#xFF09;</h2>
+<h3 id="java--xxprintflagsinitial--version-&#xFF08;&#x67E5;&#x770B;&#x9ED8;&#x8BA4;&#x503C;&#xFF09;"><a name="java--xxprintflagsinitial--version-&#xFF08;&#x67E5;&#x770B;&#x9ED8;&#x8BA4;&#x503C;&#xFF09;" class="anchor-navigation-ex-anchor" href="#java--xxprintflagsinitial--version-&#xFF08;&#x67E5;&#x770B;&#x9ED8;&#x8BA4;&#x503C;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>java -XX:+PrintFlagsInitial -version &#xFF08;&#x67E5;&#x770B;&#x9ED8;&#x8BA4;&#x503C;&#xFF09;</h3>
+<h3 id="java--xxprintflagsfinal--version-&#xFF08;&#x67E5;&#x770B;&#x4FEE;&#x6539;&#x66F4;&#x65B0;&#xFF09;"><a name="java--xxprintflagsfinal--version-&#xFF08;&#x67E5;&#x770B;&#x4FEE;&#x6539;&#x66F4;&#x65B0;&#xFF09;" class="anchor-navigation-ex-anchor" href="#java--xxprintflagsfinal--version-&#xFF08;&#x67E5;&#x770B;&#x4FEE;&#x6539;&#x66F4;&#x65B0;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>java -XX:+PrintFlagsFinal -version &#xFF08;&#x67E5;&#x770B;&#x4FEE;&#x6539;&#x66F4;&#x65B0;&#xFF09;</h3>
+<p>&#x5176;&#x4E2D;&#xFF1A;=&#x3001;:=&#xFF08;&#x4EE3;&#x8868;&#x6539;&#x52A8;&#x8FC7;&#xFF09; </p>
+<h3 id="xxprintcommandlineflags"><a name="xxprintcommandlineflags" class="anchor-navigation-ex-anchor" href="#xxprintcommandlineflags"><i class="fa fa-link" aria-hidden="true"></i></a>-XX:+PrintCommandLineFlags</h3>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; zxw 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x672C;&#x4E66;&#x53D1;&#x5E03;&#x65F6;&#x95F4;&#xFF1A;
+2019-11-05 00:26:24
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="gc.html" class="navigation navigation-prev " aria-label="Previous page: GC">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../linux/" class="navigation navigation-next " aria-label="Next page: Linux常用命令">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"JVM","level":"1.2.6.2","depth":3,"next":{"title":"Linux常用命令","level":"1.2.7","depth":2,"path":"view/linux/README.md","ref":"view/linux/README.md","articles":[]},"previous":{"title":"GC","level":"1.2.6.1","depth":3,"path":"view/jvm_gc/gc.md","ref":"view/jvm_gc/gc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","expandable-chapters-small","-fontsettings","code","copy-code-button","-search","alerts","flexible-alerts","search-pro","splitter","tbfed-pagefooter","-sharing","sharing-plus","prism","-lunr","-highlight","styles-less","toggle-chapters","multipart","ancre-navigation","pageview-count","popup","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © zxw 2019","modify_label":"本书发布时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"],"lang":{"flow":"typescript"}},"styles-less":{},"livereload":{},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"multipart":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"serif","size":12},"theme-comscore":{},"pageview-count":{},"alerts":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"expandable-chapters-small":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"},"comment":{"label":"Comment","icon":"fa fa-comments","className":"info"}},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"weibo":true,"qq":true,"all":["douban","google","qzone","linkedin"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"toggle-chapters":{}},"theme":"default","author":"zxw","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习笔记","language":"zh-hans","output.name":"site","links":{"sidebar":{"首页":"http://localhost:4000"}},"gitbook":"3.2.3","description":"好记性不如烂笔头"},"file":{"path":"view/jvm_gc/jvm.md","mtime":"2019-11-04T16:26:24.287Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-13T14:19:35.130Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

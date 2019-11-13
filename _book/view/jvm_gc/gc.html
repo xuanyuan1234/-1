@@ -1,0 +1,1001 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>GC · 学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="zxw">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-multipart/multipart.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="jvm.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://localhost:4000" target="_blank" class="custom-link">首页</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    面试点
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../juc/">
+            
+                <a href="../juc/">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    JUC
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../juc/volatie.html">
+            
+                <a href="../juc/volatie.html">
+            
+                    
+                        <b>1.2.1.1.</b>
+                    
+                    volatie
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../juc/cas.html">
+            
+                <a href="../juc/cas.html">
+            
+                    
+                        <b>1.2.1.2.</b>
+                    
+                    CAS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../juc/collection.html">
+            
+                <a href="../juc/collection.html">
+            
+                    
+                        <b>1.2.1.3.</b>
+                    
+                    集合类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="../juc/heap_stack.html">
+            
+                <a href="../juc/heap_stack.html">
+            
+                    
+                        <b>1.2.1.4.</b>
+                    
+                    堆栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../lock/">
+            
+                <a href="../lock/">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    锁
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../lock/fair.html">
+            
+                <a href="../lock/fair.html">
+            
+                    
+                        <b>1.2.2.1.</b>
+                    
+                    公平锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../lock/reentrantLock.html">
+            
+                <a href="../lock/reentrantLock.html">
+            
+                    
+                        <b>1.2.2.2.</b>
+                    
+                    可重入锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../lock/spinlock.html">
+            
+                <a href="../lock/spinlock.html">
+            
+                    
+                        <b>1.2.2.3.</b>
+                    
+                    自旋锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../lock/readwritelock.html">
+            
+                <a href="../lock/readwritelock.html">
+            
+                    
+                        <b>1.2.2.4.</b>
+                    
+                    读写锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../lock/countdownlatch.html">
+            
+                <a href="../lock/countdownlatch.html">
+            
+                    
+                        <b>1.2.2.5.</b>
+                    
+                    倒计时器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../lock/cyclicbarrier.html">
+            
+                <a href="../lock/cyclicbarrier.html">
+            
+                    
+                        <b>1.2.2.6.</b>
+                    
+                    可重用屏障/栅栏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="../lock/semaphore.html">
+            
+                <a href="../lock/semaphore.html">
+            
+                    
+                        <b>1.2.2.7.</b>
+                    
+                    信号量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="../lock/block_queue.html">
+            
+                <a href="../lock/block_queue.html">
+            
+                    
+                        <b>1.2.2.8.</b>
+                    
+                    阻塞队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="../lock/producer_consumer.html">
+            
+                <a href="../lock/producer_consumer.html">
+            
+                    
+                        <b>1.2.2.9.</b>
+                    
+                    生产者+消费者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="../lock/dead_lock.html">
+            
+                <a href="../lock/dead_lock.html">
+            
+                    
+                        <b>1.2.2.10.</b>
+                    
+                    死锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../thread_poll/">
+            
+                <a href="../thread_poll/">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    线程池
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../thread_poll/callable.html">
+            
+                <a href="../thread_poll/callable.html">
+            
+                    
+                        <b>1.2.3.1.</b>
+                    
+                    Callable接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../thread_poll/poll.html">
+            
+                <a href="../thread_poll/poll.html">
+            
+                    
+                        <b>1.2.3.2.</b>
+                    
+                    线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../reference/">
+            
+                <a href="../reference/">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../oom/">
+            
+                <a href="../oom/">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    OOM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    JVM+GC
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.6.1" data-path="gc.html">
+            
+                <a href="gc.html">
+            
+                    
+                        <b>1.2.6.1.</b>
+                    
+                    GC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.2" data-path="jvm.html">
+            
+                <a href="jvm.html">
+            
+                    
+                        <b>1.2.6.2.</b>
+                    
+                    JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../linux/">
+            
+                <a href="../linux/">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    Linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../github/">
+            
+                <a href="../github/">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    GitHub
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../jvm/">
+            
+                <a href="../../jvm/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    深入理解JVM
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../jvm/mnemonics.html">
+            
+                <a href="../../jvm/mnemonics.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    助记符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../jvm/lesson_1.html">
+            
+                <a href="../../jvm/lesson_1.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    学习1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >GC</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#gc"><b></b>GC</a></li><ul><li><span class="title-icon "></span><a href="#gc&#x7684;&#x4F5C;&#x7528;&#x57DF;"><b></b>GC&#x7684;&#x4F5C;&#x7528;&#x57DF;</a></li><li><span class="title-icon "></span><a href="#&#x5E38;&#x89C1;&#x7684;&#x5783;&#x573E;&#x56DE;&#x6536;&#x7B97;&#x6CD5;"><b></b>&#x5E38;&#x89C1;&#x7684;&#x5783;&#x573E;&#x56DE;&#x6536;&#x7B97;&#x6CD5;</a></li><ul><li><span class="title-icon "></span><a href="#&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x6CD5;-&#xFF08;jvm&#x7684;&#x5B9E;&#x73B0;&#x4E00;&#x822C;&#x4E0D;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF09;"><b></b>&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x6CD5; &#xFF08;JVM&#x7684;&#x5B9E;&#x73B0;&#x4E00;&#x822C;&#x4E0D;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF09;</a></li><li><span class="title-icon "></span><a href="#&#x590D;&#x5236;"><b></b>&#x590D;&#x5236;</a></li><li><span class="title-icon "></span><a href="#&#x6807;&#x8BB0;&#x6E05;&#x9664;"><b></b>&#x6807;&#x8BB0;&#x6E05;&#x9664;</a></li><li><span class="title-icon "></span><a href="#&#x6807;&#x8BB0;&#x538B;&#x7F29;"><b></b>&#x6807;&#x8BB0;&#x538B;&#x7F29;</a></li></ul><li><span class="title-icon "></span><a href="#gc-roots"><b></b>GC Roots</a></li><ul><li><span class="title-icon "></span><a href="#&#x5783;&#x573E;"><b></b>&#x5783;&#x573E;</a></li><li><span class="title-icon "></span><a href="#&#x5982;&#x4F55;&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x56DE;&#x6536;"><b></b>&#x5982;&#x4F55;&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x56DE;&#x6536;</a></li><li><span class="title-icon "></span><a href="#&#x54EA;&#x4E9B;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x7528;&#x4E3A;-gc-roots&#x7684;&#x5BF9;&#x8C61;"><b></b>&#x54EA;&#x4E9B;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x7528;&#x4E3A; GC Roots&#x7684;&#x5BF9;&#x8C61;</a></li></ul><li><span class="title-icon "></span><a href="#gc&#x8BE6;&#x7EC6;&#x65E5;&#x5FD7;&#x67E5;&#x770B;"><b></b>GC&#x8BE6;&#x7EC6;&#x65E5;&#x5FD7;&#x67E5;&#x770B;</a></li><li><span class="title-icon "></span><a href="#&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;"><b></b>&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;</a></li><ul><li><span class="title-icon "></span><a href="#serial-&#x4E32;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;"><b></b>Serial &#x4E32;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;</a></li><li><span class="title-icon "></span><a href="#parallel-&#x5E76;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;"><b></b>Parallel &#x5E76;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;</a></li><li><span class="title-icon "></span><a href="#cms-&#x5E76;&#x53D1;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;"><b></b>CMS &#x5E76;&#x53D1;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;</a></li><li><span class="title-icon "></span><a href="#g1-java9&#x9ED8;&#x8BA4;&#xFF0C;10&#x5E74;&#x65F6;&#x95F4;&#x9A8C;&#x8BC1;"><b></b>G1 (java9&#x9ED8;&#x8BA4;&#xFF0C;10&#x5E74;&#x65F6;&#x95F4;&#x9A8C;&#x8BC1;)</a></li><li><span class="title-icon "></span><a href="#zgc-&#xFF08;java11&#x4EE5;&#x4E0A;&#xFF09;"><b></b>ZGC &#xFF08;java11&#x4EE5;&#x4E0A;&#xFF09;</a></li><li><span class="title-icon "></span><a href="#&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;_1"><b></b>&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;</a></li><li><span class="title-icon "></span><a href="#jvm&#x3001;gc&#x7ED3;&#x5408;spring-boot&#x5FAE;&#x670D;&#x52A1;&#x8C03;&#x53C2;"><b></b>JVM&#x3001;GC&#x7ED3;&#x5408;Spring Boot&#x5FAE;&#x670D;&#x52A1;&#x8C03;&#x53C2;</a></li></ul></ul></ul></div><a href="#gc" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="gc"><a name="gc" class="anchor-navigation-ex-anchor" href="#gc"><i class="fa fa-link" aria-hidden="true"></i></a>GC</h1>
+<h2 id="gc&#x7684;&#x4F5C;&#x7528;&#x57DF;"><a name="gc&#x7684;&#x4F5C;&#x7528;&#x57DF;" class="anchor-navigation-ex-anchor" href="#gc&#x7684;&#x4F5C;&#x7528;&#x57DF;"><i class="fa fa-link" aria-hidden="true"></i></a>GC&#x7684;&#x4F5C;&#x7528;&#x57DF;</h2>
+<p>&#x65B9;&#x6CD5;&#x533A;&#x548C;&#x5806;&#xFF0C;&#x53C2;&#x89C1; JVM&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x6982;&#x89C8;&#x3002;</p>
+<h2 id="&#x5E38;&#x89C1;&#x7684;&#x5783;&#x573E;&#x56DE;&#x6536;&#x7B97;&#x6CD5;"><a name="&#x5E38;&#x89C1;&#x7684;&#x5783;&#x573E;&#x56DE;&#x6536;&#x7B97;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x5E38;&#x89C1;&#x7684;&#x5783;&#x573E;&#x56DE;&#x6536;&#x7B97;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5E38;&#x89C1;&#x7684;&#x5783;&#x573E;&#x56DE;&#x6536;&#x7B97;&#x6CD5;</h2>
+<p>GC&#x56DB;&#x5927;&#x7B97;&#x6CD5;&#xFF1A;</p>
+<ul>
+<li><strong>&#x5F15;&#x7528;&#x8BA1;&#x6570;</strong>&#xFF1A;&#x5F88;&#x4E45;&#x4E4B;&#x524D;&#x7528;&#x7684;&#xFF0C;&#x7F3A;&#x70B9;&#x660E;&#x663E;</li>
+<li><font color="red">&#x65B0;&#x751F;&#x4EE3;</font>&#x91C7;&#x7528;<strong>&#x590D;&#x5236;&#x7B97;&#x6CD5;</strong>&#xFF0C;&#x4E0D;&#x4F1A;&#x4EA7;&#x751F;&#x5185;&#x5B58;&#x788E;&#x7247;&#xFF0C;&#x4F46;&#x662F;&#x6D6A;&#x8D39;&#x5185;&#x5B58;</li>
+<li><font color="red">&#x8001;&#x5E74;&#x4EE3;</font>&#x91C7;&#x7528;<strong>&#x6807;&#x8BB0;&#x6E05;&#x9664;</strong>&#xFF0C;&#x4F1A;&#x4EA7;&#x751F;&#x5185;&#x5B58;&#x788E;&#x7247;</li>
+<li><strong>&#x6807;&#x8BB0;&#x538B;&#x7F29;</strong>&#xFF0C;&#x5728;&#x6807;&#x8BB0;&#x6E05;&#x9664;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#xFF0C;&#x79FB;&#x52A8;&#x5BF9;&#x8C61;&#xFF0C;&#x89C4;&#x907F;&#x5185;&#x5B58;&#x788E;&#x7247;&#xFF0C;&#x4F46;&#x662F;<strong>&#x79FB;&#x52A8;&#x5BF9;&#x8C61;&#x4F1A;&#x6709;&#x635F;&#x8017;</strong>&#xFF1B;</li>
+</ul>
+<h3 id="&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x6CD5;-&#xFF08;jvm&#x7684;&#x5B9E;&#x73B0;&#x4E00;&#x822C;&#x4E0D;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF09;"><a name="&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x6CD5;-&#xFF08;jvm&#x7684;&#x5B9E;&#x73B0;&#x4E00;&#x822C;&#x4E0D;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF09;" class="anchor-navigation-ex-anchor" href="#&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x6CD5;-&#xFF08;jvm&#x7684;&#x5B9E;&#x73B0;&#x4E00;&#x822C;&#x4E0D;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x6CD5; &#xFF08;JVM&#x7684;&#x5B9E;&#x73B0;&#x4E00;&#x822C;&#x4E0D;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF09;</h3>
+<p><img src="../../assert/view/jvm_gc/gc/1_1.png" alt="&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x6CD5;"></p>
+<p>&#x5BF9;&#x8C61;&#x8C03;&#x7528;+1&#xFF0C;&#x91CA;&#x653E;-1.</p>
+<p>&#x7F3A;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x6BCF;&#x6B21;&#x5BF9;&#x5BF9;&#x8C61;&#x8D4B;&#x503C;&#x65F6;&#x5747;&#x8981;&#x7EF4;&#x62A4;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x5668;&#xFF0C;&#x4E14;&#x8BA1;&#x6570;&#x5668;&#x672C;&#x8EAB;&#x4E5F;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x6D88;&#x8017;&#xFF1B;</li>
+<li>&#x8F83;&#x96BE;&#x5904;&#x7406; <strong>&#x5FAA;&#x73AF;&#x5F15;&#x7528;</strong></li>
+</ul>
+<h3 id="&#x590D;&#x5236;"><a name="&#x590D;&#x5236;" class="anchor-navigation-ex-anchor" href="#&#x590D;&#x5236;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x590D;&#x5236;</h3>
+<p><img src="../../assert/view/jvm_gc/gc/1_2.png" alt="&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x6CD5;"></p>
+<h3 id="&#x6807;&#x8BB0;&#x6E05;&#x9664;"><a name="&#x6807;&#x8BB0;&#x6E05;&#x9664;" class="anchor-navigation-ex-anchor" href="#&#x6807;&#x8BB0;&#x6E05;&#x9664;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6807;&#x8BB0;&#x6E05;&#x9664;</h3>
+<p>&#x7B97;&#x6CD5;&#x5206;&#x6210;&#x6807;&#x8BB0;&#x548C;&#x6E05;&#x9664;&#x4E24;&#x4E2A;&#x9636;&#x6BB5;&#xFF0C;&#x5148;&#x6807;&#x8BB0;&#x51FA;&#x8981;&#x56DE;&#x6536;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x7EDF;&#x4E00;&#x56DE;&#x6536;&#x8FD9;&#x4E9B;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x4F18;&#x70B9;&#xFF1A;&#x4E0D;&#x9700;&#x8981;&#x5927;&#x9762;&#x79EF;&#x590D;&#x5236;&#x5BF9;&#x8C61;&#xFF0C;&#x7F3A;&#x70B9;&#xFF1A;&#x4F1A;&#x4EA7;&#x751F;&#x5185;&#x5B58;&#x788E;&#x7247;</p>
+<p><img src="../../assert/view/jvm_gc/gc/1_3.png" alt="&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x6CD5;"></p>
+<h3 id="&#x6807;&#x8BB0;&#x538B;&#x7F29;"><a name="&#x6807;&#x8BB0;&#x538B;&#x7F29;" class="anchor-navigation-ex-anchor" href="#&#x6807;&#x8BB0;&#x538B;&#x7F29;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6807;&#x8BB0;&#x538B;&#x7F29;</h3>
+<p><img src="../../assert/view/jvm_gc/gc/1_4.png" alt="&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x6CD5;"></p>
+<h2 id="gc-roots"><a name="gc-roots" class="anchor-navigation-ex-anchor" href="#gc-roots"><i class="fa fa-link" aria-hidden="true"></i></a>GC Roots</h2>
+<p>&#x5B57;&#x7B26;&#x4E32;&#x7ED3;&#x675F;&#x7B26;&apos;\0&apos;</p>
+<h3 id="&#x5783;&#x573E;"><a name="&#x5783;&#x573E;" class="anchor-navigation-ex-anchor" href="#&#x5783;&#x573E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5783;&#x573E;</h3>
+<p>&#x5185;&#x5B58;&#x4E2D;&#x5DF2;&#x7ECF;&#x4E0D;&#x518D;&#x88AB;&#x4F7F;&#x7528;&#x5230;&#x7684;&#x7A7A;&#x95F4;&#x5C31;&#x662F;&#x5783;&#x573E;</p>
+<h3 id="&#x5982;&#x4F55;&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x56DE;&#x6536;"><a name="&#x5982;&#x4F55;&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x56DE;&#x6536;" class="anchor-navigation-ex-anchor" href="#&#x5982;&#x4F55;&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x56DE;&#x6536;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5982;&#x4F55;&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x56DE;&#x6536;</h3>
+<h4 id="&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x6CD5;-&#xFF08;&#x4E0D;&#x4F7F;&#x7528;&#xFF09;"><a name="&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x6CD5;-&#xFF08;&#x4E0D;&#x4F7F;&#x7528;&#xFF09;" class="anchor-navigation-ex-anchor" href="#&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x6CD5;-&#xFF08;&#x4E0D;&#x4F7F;&#x7528;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x6CD5; &#xFF08;&#x4E0D;&#x4F7F;&#x7528;&#xFF09;</h4>
+<h4 id="&#x679A;&#x4E3E;&#x6839;&#x8282;&#x70B9;&#x505A;&#x53EF;&#x8FBE;&#x6027;&#x5206;&#x6790;&#x6839;&#x641C;&#x7D22;&#x8DEF;&#x5F84;"><a name="&#x679A;&#x4E3E;&#x6839;&#x8282;&#x70B9;&#x505A;&#x53EF;&#x8FBE;&#x6027;&#x5206;&#x6790;&#x6839;&#x641C;&#x7D22;&#x8DEF;&#x5F84;" class="anchor-navigation-ex-anchor" href="#&#x679A;&#x4E3E;&#x6839;&#x8282;&#x70B9;&#x505A;&#x53EF;&#x8FBE;&#x6027;&#x5206;&#x6790;&#x6839;&#x641C;&#x7D22;&#x8DEF;&#x5F84;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x679A;&#x4E3E;&#x6839;&#x8282;&#x70B9;&#x505A;&#x53EF;&#x8FBE;&#x6027;&#x5206;&#x6790;(&#x6839;&#x641C;&#x7D22;&#x8DEF;&#x5F84;)</h4>
+<p><img src="../../assert/view/jvm_gc/gc/1_5.png" alt="&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x6CD5;"></p>
+<h3 id="&#x54EA;&#x4E9B;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x7528;&#x4E3A;-gc-roots&#x7684;&#x5BF9;&#x8C61;"><a name="&#x54EA;&#x4E9B;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x7528;&#x4E3A;-gc-roots&#x7684;&#x5BF9;&#x8C61;" class="anchor-navigation-ex-anchor" href="#&#x54EA;&#x4E9B;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x7528;&#x4E3A;-gc-roots&#x7684;&#x5BF9;&#x8C61;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x54EA;&#x4E9B;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x7528;&#x4E3A; GC Roots&#x7684;&#x5BF9;&#x8C61;</h3>
+<ul>
+<li>&#x865A;&#x62DF;&#x673A;&#x6808;&#xFF08;&#x6808;&#x5E27;&#x4E2D;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x4E5F;&#x53EB;&#x505A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x8868;&#xFF09;&#x4E2D;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
+<li>&#x65B9;&#x6CD5;&#x533A;&#x4E2D;&#x7684;&#x7C7B;&#x9759;&#x6001;&#x5C5E;&#x6027;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
+<li>&#x65B9;&#x6CD5;&#x533A;&#x4E2D;&#x5E38;&#x91CF;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
+<li>&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x4E2D;JNI(Native&#x65B9;&#x6CD5;)&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
+</ul>
+<h2 id="gc&#x8BE6;&#x7EC6;&#x65E5;&#x5FD7;&#x67E5;&#x770B;"><a name="gc&#x8BE6;&#x7EC6;&#x65E5;&#x5FD7;&#x67E5;&#x770B;" class="anchor-navigation-ex-anchor" href="#gc&#x8BE6;&#x7EC6;&#x65E5;&#x5FD7;&#x67E5;&#x770B;"><i class="fa fa-link" aria-hidden="true"></i></a>GC&#x8BE6;&#x7EC6;&#x65E5;&#x5FD7;&#x67E5;&#x770B;</h2>
+<ul>
+<li>-XX:PrintGCDetails: &#x67E5;&#x770B;GC&#x6536;&#x96C6;&#x7684;&#x8BE6;&#x7EC6;&#x65E5;&#x5FD7;</li>
+</ul>
+<p>GC&#x5728;&#x65B0;&#x751F;&#x4EE3;&#x533A;&#xFF0C;Full GC&#x5728;&#x8001;&#x5E74;&#x4EE3;&#x533A;</p>
+<pre class="language-"><code class="lang-java">GC <span class="token class-name">Hello</span>
+<span class="token punctuation">[</span>GC <span class="token punctuation">(</span><span class="token class-name">Allocation</span> <span class="token class-name">Failure</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token class-name">PSYoungGen</span><span class="token operator">:</span> <span class="token number">2041</span>K<span class="token operator">-&gt;</span><span class="token function">488K</span><span class="token punctuation">(</span><span class="token number">2560</span>K<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token number">2041</span>K<span class="token operator">-&gt;</span><span class="token function">712K</span><span class="token punctuation">(</span><span class="token number">9728</span>K<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0.0039801</span> secs<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token class-name">Times</span><span class="token operator">:</span> user<span class="token operator">=</span><span class="token number">0.00</span> sys<span class="token operator">=</span><span class="token number">0.00</span><span class="token punctuation">,</span> real<span class="token operator">=</span><span class="token number">0.01</span> secs<span class="token punctuation">]</span> 
+<span class="token punctuation">[</span>GC <span class="token punctuation">(</span><span class="token class-name">Allocation</span> <span class="token class-name">Failure</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token class-name">PSYoungGen</span><span class="token operator">:</span> <span class="token number">488</span>K<span class="token operator">-&gt;</span><span class="token function">504K</span><span class="token punctuation">(</span><span class="token number">2560</span>K<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token number">712</span>K<span class="token operator">-&gt;</span><span class="token function">728K</span><span class="token punctuation">(</span><span class="token number">9728</span>K<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0.0007173</span> secs<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token class-name">Times</span><span class="token operator">:</span> user<span class="token operator">=</span><span class="token number">0.00</span> sys<span class="token operator">=</span><span class="token number">0.00</span><span class="token punctuation">,</span> real<span class="token operator">=</span><span class="token number">0.00</span> secs<span class="token punctuation">]</span> 
+<span class="token punctuation">[</span><span class="token class-name">Full</span> GC <span class="token punctuation">(</span><span class="token class-name">Allocation</span> <span class="token class-name">Failure</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token class-name">PSYoungGen</span><span class="token operator">:</span> <span class="token number">504</span>K<span class="token operator">-&gt;</span><span class="token function">0K</span><span class="token punctuation">(</span><span class="token number">2560</span>K<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token class-name">ParOldGen</span><span class="token operator">:</span> <span class="token number">224</span>K<span class="token operator">-&gt;</span><span class="token function">674K</span><span class="token punctuation">(</span><span class="token number">7168</span>K<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token number">728</span>K<span class="token operator">-&gt;</span><span class="token function">674K</span><span class="token punctuation">(</span><span class="token number">9728</span>K<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token class-name">Metaspace</span><span class="token operator">:</span> <span class="token number">3492</span>K<span class="token operator">-&gt;</span><span class="token function">3492K</span><span class="token punctuation">(</span><span class="token number">1056768</span>K<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0.0043729</span> secs<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token class-name">Times</span><span class="token operator">:</span> user<span class="token operator">=</span><span class="token number">0.00</span> sys<span class="token operator">=</span><span class="token number">0.00</span><span class="token punctuation">,</span> real<span class="token operator">=</span><span class="token number">0.00</span> secs<span class="token punctuation">]</span> 
+<span class="token punctuation">[</span>GC <span class="token punctuation">(</span><span class="token class-name">Allocation</span> <span class="token class-name">Failure</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token class-name">PSYoungGen</span><span class="token operator">:</span> <span class="token number">0</span>K<span class="token operator">-&gt;</span><span class="token function">0K</span><span class="token punctuation">(</span><span class="token number">2560</span>K<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token number">674</span>K<span class="token operator">-&gt;</span><span class="token function">674K</span><span class="token punctuation">(</span><span class="token number">9728</span>K<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0.0004317</span> secs<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token class-name">Times</span><span class="token operator">:</span> user<span class="token operator">=</span><span class="token number">0.00</span> sys<span class="token operator">=</span><span class="token number">0.00</span><span class="token punctuation">,</span> real<span class="token operator">=</span><span class="token number">0.00</span> secs<span class="token punctuation">]</span> 
+<span class="token punctuation">[</span><span class="token class-name">Full</span> GC <span class="token punctuation">(</span><span class="token class-name">Allocation</span> <span class="token class-name">Failure</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token class-name">PSYoungGen</span><span class="token operator">:</span> <span class="token number">0</span>K<span class="token operator">-&gt;</span><span class="token function">0K</span><span class="token punctuation">(</span><span class="token number">2560</span>K<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token class-name">ParOldGen</span><span class="token operator">:</span> <span class="token number">674</span>K<span class="token operator">-&gt;</span><span class="token function">656K</span><span class="token punctuation">(</span><span class="token number">7168</span>K<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token number">674</span>K<span class="token operator">-&gt;</span><span class="token function">656K</span><span class="token punctuation">(</span><span class="token number">9728</span>K<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token class-name">Metaspace</span><span class="token operator">:</span> <span class="token number">3492</span>K<span class="token operator">-&gt;</span><span class="token function">3492K</span><span class="token punctuation">(</span><span class="token number">1056768</span>K<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0.0072861</span> secs<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token class-name">Times</span><span class="token operator">:</span> user<span class="token operator">=</span><span class="token number">0.00</span> sys<span class="token operator">=</span><span class="token number">0.00</span><span class="token punctuation">,</span> real<span class="token operator">=</span><span class="token number">0.01</span> secs<span class="token punctuation">]</span> 
+<span class="token class-name">Heap</span>
+ <span class="token class-name">PSYoungGen</span>      total <span class="token number">2560</span>K<span class="token punctuation">,</span> used <span class="token number">57</span>K <span class="token punctuation">[</span><span class="token number">0x00000000ffd00000</span><span class="token punctuation">,</span> <span class="token number">0x0000000100000000</span><span class="token punctuation">,</span> <span class="token number">0x0000000100000000</span><span class="token punctuation">)</span>
+  eden space <span class="token number">2048</span>K<span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">%</span> used <span class="token punctuation">[</span><span class="token number">0x00000000ffd00000</span><span class="token punctuation">,</span><span class="token number">0x00000000ffd0e7a0</span><span class="token punctuation">,</span><span class="token number">0x00000000fff00000</span><span class="token punctuation">)</span>
+  from space <span class="token number">512</span>K<span class="token punctuation">,</span> <span class="token number">0</span><span class="token operator">%</span> used <span class="token punctuation">[</span><span class="token number">0x00000000fff00000</span><span class="token punctuation">,</span><span class="token number">0x00000000fff00000</span><span class="token punctuation">,</span><span class="token number">0x00000000fff80000</span><span class="token punctuation">)</span>
+  <span class="token keyword">to</span>   space <span class="token number">512</span>K<span class="token punctuation">,</span> <span class="token number">0</span><span class="token operator">%</span> used <span class="token punctuation">[</span><span class="token number">0x00000000fff80000</span><span class="token punctuation">,</span><span class="token number">0x00000000fff80000</span><span class="token punctuation">,</span><span class="token number">0x0000000100000000</span><span class="token punctuation">)</span>
+ <span class="token class-name">ParOldGen</span>       total <span class="token number">7168</span>K<span class="token punctuation">,</span> used <span class="token number">656</span>K <span class="token punctuation">[</span><span class="token number">0x00000000ff600000</span><span class="token punctuation">,</span> <span class="token number">0x00000000ffd00000</span><span class="token punctuation">,</span> <span class="token number">0x00000000ffd00000</span><span class="token punctuation">)</span>
+  object space <span class="token number">7168</span>K<span class="token punctuation">,</span> <span class="token number">9</span><span class="token operator">%</span> used <span class="token punctuation">[</span><span class="token number">0x00000000ff600000</span><span class="token punctuation">,</span><span class="token number">0x00000000ff6a4030</span><span class="token punctuation">,</span><span class="token number">0x00000000ffd00000</span><span class="token punctuation">)</span>
+ <span class="token class-name">Metaspace</span>       used <span class="token number">3524</span>K<span class="token punctuation">,</span> capacity <span class="token number">4502</span>K<span class="token punctuation">,</span> committed <span class="token number">4864</span>K<span class="token punctuation">,</span> reserved <span class="token number">1056768</span>K
+  <span class="token keyword">class</span> space    used <span class="token number">391</span>K<span class="token punctuation">,</span> capacity <span class="token number">394</span>K<span class="token punctuation">,</span> committed <span class="token number">512</span>K<span class="token punctuation">,</span> reserved <span class="token number">1048576</span>K
+<span class="token class-name">Exception</span> in thread <span class="token string">&quot;main&quot;</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span><span class="token class-name">OutOfMemoryError</span><span class="token operator">:</span> <span class="token class-name">Java</span> heap space
+    at com<span class="token punctuation">.</span>zhou<span class="token punctuation">.</span>java<span class="token punctuation">.</span>test<span class="token punctuation">.</span><span class="token class-name">Test</span><span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">Test</span><span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">18</span><span class="token punctuation">)</span>
+</code></pre>
+<p>GC
+<img src="../../assert/view/jvm_gc/gc/1_6.png" alt="GC"></p>
+<p>Full GC
+<img src="../../assert/view/jvm_gc/gc/1_7.png" alt="Full GC"></p>
+<h2 id="&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;"><a name="&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;" class="anchor-navigation-ex-anchor" href="#&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;</h2>
+<p>GC&#x7B97;&#x6CD5;&#x662F;&#x5185;&#x5B58;&#x56DE;&#x6536;&#x7684;&#x65B9;&#x6CD5;&#x8BBA;&#xFF0C;&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;&#x5C31;&#x662F;&#x7B97;&#x6CD5;&#x843D;&#x5730;&#x5B9E;&#x73B0;&#x3002;</p>
+<h3 id="serial-&#x4E32;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;"><a name="serial-&#x4E32;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;" class="anchor-navigation-ex-anchor" href="#serial-&#x4E32;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>Serial &#x4E32;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;</h3>
+<p>&#x5B83;&#x4E3A;&#x5355;&#x7EBF;&#x7A0B;&#x73AF;&#x5883;&#x8BBE;&#x8BA1;&#x4E14;&#x53EA;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#xFF0C;&#x4F1A;&#x6682;&#x505C;&#x6240;&#x6709;&#x7684;&#x7528;&#x6237;&#x7EBF;&#x7A0B;&#x3002;&#x6240;&#x4EE5;&#x4E0D;&#x9002;&#x5408;&#x670D;&#x52A1;&#x5668;&#x73AF;&#x5883;&#x3002;</p>
+<h3 id="parallel-&#x5E76;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;"><a name="parallel-&#x5E76;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;" class="anchor-navigation-ex-anchor" href="#parallel-&#x5E76;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>Parallel &#x5E76;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;</h3>
+<p>&#x591A;&#x4E2A;&#x5783;&#x573E;&#x6536;&#x96C6;&#x7EBF;&#x7A0B;&#x5E76;&#x884C;&#x5DE5;&#x4F5C;&#xFF0C;&#x6B64;&#x65F6;&#x7528;&#x6237;&#x7EBF;&#x7A0B;&#x662F;&#x6682;&#x505C;&#x7684;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x79D1;&#x5B66;&#x8BA1;&#x7B97;/&#x5927;&#x6570;&#x636E;&#x5904;&#x7406;&#x9996;&#x53F0;&#x5904;&#x7406;&#x7B49;&#x5F31;&#x4EA4;&#x4E92;&#x573A;&#x666F;&#x3002;</p>
+<h3 id="cms-&#x5E76;&#x53D1;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;"><a name="cms-&#x5E76;&#x53D1;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;" class="anchor-navigation-ex-anchor" href="#cms-&#x5E76;&#x53D1;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>CMS &#x5E76;&#x53D1;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;</h3>
+<p><strong>&#x7528;&#x6237;&#x7EBF;&#x7A0B;&#x548C;&#x5783;&#x573E;&#x6536;&#x96C6;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x6267;&#x884C;</strong>&#xFF08;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x5E76;&#x884C;&#xFF0C;&#x53EF;&#x80FD;&#x4EA4;&#x66FF;&#x6267;&#x884C;&#xFF09;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x505C;&#x987F;&#x7528;&#x6237;&#x7EBF;&#x7A0B;&#x3002;&#x4E92;&#x8054;&#x7F51;&#x516C;&#x53F8;&#x591A;&#x7528;&#x5B83;&#xFF0C;&#x9002;&#x7528;&#x5BF9;&#x54CD;&#x5E94;&#x65F6;&#x95F4;&#x6709;&#x8981;&#x6C42;&#x7684;&#x573A;&#x666F;&#x3002;</p>
+<h3 id="g1-java9&#x9ED8;&#x8BA4;&#xFF0C;10&#x5E74;&#x65F6;&#x95F4;&#x9A8C;&#x8BC1;"><a name="g1-java9&#x9ED8;&#x8BA4;&#xFF0C;10&#x5E74;&#x65F6;&#x95F4;&#x9A8C;&#x8BC1;" class="anchor-navigation-ex-anchor" href="#g1-java9&#x9ED8;&#x8BA4;&#xFF0C;10&#x5E74;&#x65F6;&#x95F4;&#x9A8C;&#x8BC1;"><i class="fa fa-link" aria-hidden="true"></i></a>G1 (java9&#x9ED8;&#x8BA4;&#xFF0C;10&#x5E74;&#x65F6;&#x95F4;&#x9A8C;&#x8BC1;)</h3>
+<h3 id="zgc-&#xFF08;java11&#x4EE5;&#x4E0A;&#xFF09;"><a name="zgc-&#xFF08;java11&#x4EE5;&#x4E0A;&#xFF09;" class="anchor-navigation-ex-anchor" href="#zgc-&#xFF08;java11&#x4EE5;&#x4E0A;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>ZGC &#xFF08;java11&#x4EE5;&#x4E0A;&#xFF09;</h3>
+<h3 id="&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;_1"><a name="&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;_1" class="anchor-navigation-ex-anchor" href="#&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;_1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;</h3>
+<ul>
+<li><p>&#x600E;&#x4E48;&#x67E5;&#x770B;&#x670D;&#x52A1;&#x5668;&#x9ED8;&#x8BA4;&#x7684;&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;<br>java -XX:+PrintCommandLineFlags -version</p>
+</li>
+<li><p>&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;&#x79CD;&#x7C7B;<br>UseSerialGC  --- Serial Copying<br>UseConcMarkSweepGC   --- CMS<br>UseParNewGC --- ParNew<br>UserParallelGC   --- Parallel Scavenge<br>UseParallelOldGC  --- Paralll Compacting<br>UseG1GC  </p>
+</li>
+</ul>
+<p>&#x5176;&#x4E2D;&#xFF0C;Serial MSC (Serial Old),java8&#x4E2D;&#x5DF2;&#x7ECF;&#x5E9F;&#x5F03;&#x3002;</p>
+<p><img src="../../assert/view/jvm_gc/gc/1_8.png" alt="GC type"></p>
+<p><img src="../../assert/view/jvm_gc/gc/1_9.png" alt="GC type"></p>
+<ul>
+<li>&#x5982;&#x4F55;&#x9009;&#x62E9;&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;
+<img src="../../assert/view/jvm_gc/gc/1_16.png" alt="GC type">
+<img src="../../assert/view/jvm_gc/gc/1_17.png" alt="GC type"></li>
+</ul>
+<ul>
+<li>&#x8C08;&#x8C08;&#x4F60;&#x5BF9;&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;&#x7684;&#x7406;&#x89E3;</li>
+</ul>
+<h4 id="gc&#x7EA6;&#x5B9A;&#x53C2;&#x6570;&#x8BF4;&#x660E;"><a name="gc&#x7EA6;&#x5B9A;&#x53C2;&#x6570;&#x8BF4;&#x660E;" class="anchor-navigation-ex-anchor" href="#gc&#x7EA6;&#x5B9A;&#x53C2;&#x6570;&#x8BF4;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>GC&#x7EA6;&#x5B9A;&#x53C2;&#x6570;&#x8BF4;&#x660E;</h4>
+<ul>
+<li>DefNew: Default New Generation</li>
+<li>Tenured: Old</li>
+<li>ParNew: Parallel New Generation</li>
+<li>PSYoungGen: Parallel Scavenge</li>
+<li>ParOldGen: Parallel Old Generation</li>
+</ul>
+<h4 id="serial&#x6536;&#x96C6;&#x5668;"><a name="serial&#x6536;&#x96C6;&#x5668;" class="anchor-navigation-ex-anchor" href="#serial&#x6536;&#x96C6;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>Serial&#x6536;&#x96C6;&#x5668;</h4>
+<p><img src="../../assert/view/jvm_gc/gc/1_10.png" alt="GC type">
+-Xms10m -Xmx10m -XX:+PrintGCDetails -XX:+PrintCommandLineFlags -XX:+UseSerialGC  (DefNew+Tenured)<br>JVM&#x53C2;&#x6570;&#xFF1A;-XX:UseSerialGC<br>&#x5F00;&#x542F;&#x540E;&#xFF1A;Serial(Young&#x533A;&#x7528;) + Serial Old(Old&#x533A;&#x7528;)&#x7684;&#x6536;&#x96C6;&#x5668;&#x7EC4;&#x5408;<br>&#x8868;&#x793A;&#xFF1A;&#x65B0;&#x751F;&#x4EE3;&#x3001;&#x8001;&#x5E74;&#x4EE3;&#x90FD;&#x4F1A;&#x4F7F;&#x7528;&#x4E32;&#x884C;&#x56DE;&#x6536;&#x6536;&#x96C6;&#x5668;&#xFF0C;&#x65B0;&#x751F;&#x4EE3;&#x4F7F;&#x7528;<strong>&#x590D;&#x5236;&#x7B97;&#x6CD5;</strong>&#xFF0C;&#x8001;&#x5E74;&#x4EE3;&#x4F7F;&#x7528;<strong>&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B97;&#x6CD5;</strong>&#x3002;</p>
+<h4 id="parnew&#x6536;&#x96C6;&#x5668;"><a name="parnew&#x6536;&#x96C6;&#x5668;" class="anchor-navigation-ex-anchor" href="#parnew&#x6536;&#x96C6;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>ParNew&#x6536;&#x96C6;&#x5668;</h4>
+<p><img src="../../assert/view/jvm_gc/gc/1_11.png" alt="GC type">
+-Xms10m -Xmx10m -XX:+PrintGCDetails -XX:+PrintCommandLineFlags -XX:+UseParNewGC  (ParNew+Tenured)<br>&#x662F;Serial&#x6536;&#x96C6;&#x5668;&#x65B0;&#x751F;&#x4EE3;&#x7684;&#x5E76;&#x884C;&#x591A;&#x7EBF;&#x7A0B;&#x7248;&#x672C;&#xFF0C;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x5E94;&#x7528;&#x573A;&#x666F;&#x662F;&#x914D;&#x5408;<strong>&#x8001;&#x5E74;&#x4EE3;&#x7684;CMS GS</strong>&#x5DE5;&#x4F5C;&#xFF0C;&#x5176;&#x4F59;&#x884C;&#x4E3A;&#x548C;Serial&#x6536;&#x96C6;&#x5668;&#x5B8C;&#x5168;&#x4E00;&#x6837;&#x3002;<br>&#x5B83;&#x662F;&#x5F88;&#x591A;java&#x865A;&#x62DF;&#x673A;&#x8FD0;&#x884C;&#x5728;<strong>Server</strong>&#x6A21;&#x5F0F;&#x4E0B;<strong>&#x65B0;&#x751F;&#x4EE3;</strong>&#x7684;&#x9ED8;&#x8BA4;&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;&#x3002;<br>JVM&#x53C2;&#x6570;&#xFF1A;-XX:UseParNewGC<br>&#x5F00;&#x542F;&#x540E;&#xFF1A;&#x53EA;&#x5F71;&#x54CD;&#x65B0;&#x751F;&#x4EE3;&#x7684;&#x6536;&#x96C6;&#xFF0C;&#x4E0D;&#x5F71;&#x54CD;&#x8001;&#x5E74;&#x4EE3;&#x3002;ParNew(Young&#x533A;&#x7528;) + Serial Old(Old&#x533A;&#x7528;)&#x7684;&#x6536;&#x96C6;&#x5668;&#x7EC4;&#x5408;
+&#x8868;&#x793A;&#xFF1A;&#x65B0;&#x751F;&#x4EE3;&#x4F7F;&#x7528;<strong>&#x590D;&#x5236;&#x7B97;&#x6CD5;</strong>&#xFF0C;&#x8001;&#x5E74;&#x4EE3;&#x4F7F;&#x7528;<strong>&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B97;&#x6CD5;</strong>&#x3002;</p>
+<font color="red">**&#x4F46;&#x662F;&#xFF0C;ParNew+Tenured&#x8FD9;&#x6837;&#x7684;&#x642D;&#x914D;&#xFF0C;java8&#x5DF2;&#x7ECF;&#x4E0D;&#x518D;&#x88AB;&#x63A8;&#x8350;&#x3002;**</font>
+
+<h4 id="parallel&#x6536;&#x96C6;&#x5668;-&#xFF08;&#x9ED8;&#x8BA4;&#xFF09;"><a name="parallel&#x6536;&#x96C6;&#x5668;-&#xFF08;&#x9ED8;&#x8BA4;&#xFF09;" class="anchor-navigation-ex-anchor" href="#parallel&#x6536;&#x96C6;&#x5668;-&#xFF08;&#x9ED8;&#x8BA4;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>Parallel&#x6536;&#x96C6;&#x5668; &#xFF08;&#x9ED8;&#x8BA4;&#xFF09;</h4>
+<p><img src="../../assert/view/jvm_gc/gc/1_12.png" alt="GC type">
+-Xms10m -Xmx10m -XX:+PrintGCDetails -XX:+PrintCommandLineFlags -XX:+UseParallelGC (PSYoungGen+ParOldGen)
+&#x541E;&#x5410;&#x91CF;&#x4F18;&#x5148;&#x6536;&#x96C6;&#x5668;&#x3002;&#x5173;&#x6CE8;&#x7684;&#x91CD;&#x70B9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x53EF;&#x63A7;&#x5236;&#x7684;&#x541E;&#x5410;&#x91CF;&#xFF08;=&#x8FD0;&#x884C;&#x7528;&#x6237;&#x4EE3;&#x7801;&#x65F6;&#x95F4;/(&#x8FD0;&#x884C;&#x7528;&#x6237;&#x4EE3;&#x7801;&#x65F6;&#x95F4;+&#x5783;&#x573E;&#x6536;&#x96C6;&#x65F6;&#x95F4;)&#xFF09;&#x3002;&#x9AD8;&#x541E;&#x5410;&#x91CF;&#x610F;&#x5473;&#x7740;&#x9AD8;&#x6548;&#x5229;&#x7528;CPU&#x65F6;&#x95F4;&#xFF0C;&#x5B83;&#x591A;&#x7528;&#x4E8E;<strong>&#x540E;&#x53F0;&#x8FD0;&#x7B97;&#x800C;&#x4E0D;&#x9700;&#x8981;&#x592A;&#x591A;&#x4EA4;&#x4E92;&#x7684;&#x4EFB;&#x52A1;</strong>&#x3002;  </li>
+<li>&#x81EA;&#x9002;&#x5E94;&#x8C03;&#x8282;&#x7B56;&#x7565;&#xFF1A;&#x865A;&#x62DF;&#x673A;&#x4F1A;&#x6839;&#x636E;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x7684;&#x8FD0;&#x884C;&#x60C5;&#x51B5;&#x6536;&#x96C6;&#x6027;&#x80FD;&#x76D1;&#x63A7;&#x4FE1;&#x606F;&#xFF0C;&#x52A8;&#x6001;&#x8C03;&#x6574;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#x4EE5;&#x63D0;&#x4F9B;&#x6700;&#x5408;&#x9002;&#x7684;&#x505C;&#x987F;&#x65F6;&#x95F4;&#xFF08;-XX:MaxGCPauseMillis&#xFF09;&#x6216;&#x6700;&#x5927;&#x7684;&#x541E;&#x5410;&#x91CF;&#x3002;<br>JVM&#x53C2;&#x6570;&#xFF1A;-XX:UseParallelGC&#x6216;-XX:UseParallelOldGC(<strong>&#x53EF;&#x4E92;&#x76F8;&#x6FC0;&#x6D3B;</strong>)&#x4F7F;&#x7528;Parallel Scavenge&#x6536;&#x96C6;&#x5668;&#x3002;  </li>
+</ul>
+<h4 id="parallel-old&#x6536;&#x96C6;&#x5668;"><a name="parallel-old&#x6536;&#x96C6;&#x5668;" class="anchor-navigation-ex-anchor" href="#parallel-old&#x6536;&#x96C6;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>Parallel Old&#x6536;&#x96C6;&#x5668;</h4>
+<p>-Xms10m -Xmx10m -XX:+PrintGCDetails -XX:+PrintCommandLineFlags -XX:+UseParallelOldGC (PSYoungGen+ParOldGen)
+&#x4E3A;&#x4E86;&#x5728;&#x8001;&#x5E74;&#x4EE3;&#x540C;&#x6837;&#x63D0;&#x4F9B;&#x541E;&#x5410;&#x91CF;&#x4F18;&#x5148;&#x7684;&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;&#xFF0C;&#x5982;&#x679C;&#x7CFB;&#x7EDF;&#x5BF9;&#x541E;&#x5410;&#x91CF;&#x8981;&#x6C42;&#x6BD4;&#x8F83;&#x9AD8;&#xFF0C;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x3002;<br>&#x5728;jdk1.6&#x4E4B;&#x524D;(Parallel Scavenge + Serial Old)&#x3002;&#x5728;jdk1.8&#x4E4B;&#x540E;(Parallel Scavenge + Parallel Old)<br>-XX:UseParallelOldGC</p>
+<h4 id="cms&#x6536;&#x96C6;&#x5668;"><a name="cms&#x6536;&#x96C6;&#x5668;" class="anchor-navigation-ex-anchor" href="#cms&#x6536;&#x96C6;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>CMS&#x6536;&#x96C6;&#x5668;</h4>
+<p><img src="../../assert/view/jvm_gc/gc/1_13.png" alt="GC type"><br>-Xms10m -Xmx10m -XX:+PrintGCDetails -XX:+PrintCommandLineFlags -XX:+UseConcMarkSweepGC (par new generation + concurrent mark-sweep)<br>&#x5E76;&#x53D1;&#x6807;&#x8BB0;&#x6E05;&#x9664;&#x6536;&#x96C6;&#x5668;&#x3002;<br>&#x662F;&#x4E00;&#x79CD;&#x4EE5;&#x83B7;&#x53D6;&#x6700;&#x77ED;&#x56DE;&#x6536;&#x505C;&#x987F;&#x65F6;&#x95F4;&#x4E3A;&#x76EE;&#x6807;&#x7684;&#x6536;&#x96C6;&#x5668;&#x3002;&#x9002;&#x5408;&#x5E94;&#x7528;&#x5728;&#x4E92;&#x8054;&#x7F51;&#x6216;&#x8005;B/S&#x7CFB;&#x7EDF;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#xFF0C;&#x8FD9;&#x7C7B;&#x5E94;&#x7528;&#x5C24;&#x5176;&#x91CD;&#x89C6;&#x670D;&#x52A1;&#x5668;&#x7684;&#x54CD;&#x5E94;&#x901F;&#x5EA6;&#xFF0C;&#x5E0C;&#x671B;&#x7CFB;&#x7EDF;&#x505C;&#x987F;&#x65F6;&#x95F4;&#x6700;&#x77ED;&#x3002;CMS&#x975E;&#x5E38;&#x9002;&#x5408;&#x5806;&#x5185;&#x5B58;&#x5927;&#x3001;CPU&#x6838;&#x6570;&#x591A;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x5E94;&#x7528;&#xFF0C;&#x4E5F;&#x662F;G1&#x51FA;&#x73B0;&#x4E4B;&#x524D;&#x5927;&#x578B;&#x5E94;&#x7528;&#x7684;&#x9996;&#x9009;&#x6536;&#x96C6;&#x5668;&#x3002;<br>-XX:+UseConcMarkSweepGC&#xFF0C;&#x5F00;&#x542F;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x5C06;-XX:UseParNewGC&#x6253;&#x5F00;&#x3002;&#x4F7F;&#x7528;ParNew(Young&#x533A;&#x7528;)+CMS(Old&#x533A;&#x7528;)+Serial Old&#x7684;&#x6536;&#x96C6;&#x5668;&#x7EC4;&#x5408;&#xFF0C;Serial Old&#x5C06;&#x4F5C;&#x4E3A;CMS&#x51FA;&#x9519;&#x7684;&#x540E;&#x5907;&#x6536;&#x96C6;&#x5668;&#x3002;  </p>
+<p>&#x6709;4&#x6B65;&#x8FC7;&#x7A0B;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;  </p>
+<ul>
+<li>&#x521D;&#x59CB;&#x6807;&#x8BB0;(CMS initial mark)&#xFF1A;&#x53EA;&#x4E2D;&#x6807;&#x8BB0;&#x4E00;&#x4E0B;GC Roots&#x80FD;&#x76F4;&#x63A5;&#x5173;&#x8054;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x901F;&#x5EA6;&#x5F88;&#x5FEB;&#xFF0C;&#x4ECD;&#x7136;&#x9700;&#x8981;&#x6682;&#x505C;&#x6240;&#x6709;&#x7684;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x3002;</li>
+<li>&#x5E76;&#x53D1;&#x6807;&#x8BB0;(CMS concurrent mark)&#xFF1A;&#x8FDB;&#x884C;GC Roots&#x8DDF;&#x8E2A;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x548C;&#x7528;&#x6237;&#x7EBF;&#x7A0B;&#x4E00;&#x8D77;&#x5DE5;&#x4F5C;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x6682;&#x505C;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x3002;&#x4E3B;&#x8981;&#x6807;&#x8BB0;&#x8FC7;&#x7A0B;&#xFF0C;&#x6807;&#x8BB0;&#x5168;&#x90E8;&#x5BF9;&#x8C61;&#x3002;</li>
+<li>&#x91CD;&#x65B0;&#x6807;&#x8BB0;(CMS remark)&#xFF1A;&#x4FEE;&#x6B63;&#x5728;&#x5E76;&#x53D1;&#x6807;&#x8BB0;&#x671F;&#x95F4;&#xFF0C;&#x56E0;&#x7528;&#x6237;&#x7A0B;&#x5E8F;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;&#x800C;&#x5BFC;&#x81F4;&#x6807;&#x8BB0;&#x4EA7;&#x751F;&#x53D8;&#x52A8;&#x7684;&#x90A3;&#x4E00;&#x90E8;&#x5206;&#x5BF9;&#x8C61;&#x7684;&#x6807;&#x8BB0;&#x8BB0;&#x5F55;&#xFF0C;&#x4ECD;&#x7136;&#x9700;&#x8981;&#x6682;&#x505C;&#x6240;&#x6709;&#x7684;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x3002;&#x7531;&#x4E8E;&#x5E76;&#x53D1;&#x6807;&#x8BB0;&#x65F6;&#xFF0C;&#x7528;&#x6237;&#x7EBF;&#x7A0B;&#x4F9D;&#x7136;&#x8FD0;&#x884C;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x6B63;&#x5F0F;&#x6E05;&#x7406;&#x524D;&#xFF0C;&#x518D;&#x505A;&#x4FEE;&#x6B63;&#x3002;</li>
+<li>&#x5E76;&#x53D1;&#x6E05;&#x9664;(CMS concurrent sweep)&#xFF1A;&#x6E05;&#x9664;GC Roots&#x4E0D;&#x53EF;&#x8FBE;&#x5BF9;&#x8C61;&#xFF0C;&#x548C;&#x7528;&#x6237;&#x7EBF;&#x7A0B;&#x4E00;&#x8D77;&#x5DE5;&#x4F5C;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x6682;&#x505C;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x3002;&#x57FA;&#x4E8E;&#x6807;&#x8BB0;&#x7ED3;&#x679C;&#xFF0C;&#x76F4;&#x63A5;&#x6E05;&#x7406;&#x5BF9;&#x8C61;&#x3002;&#x7531;&#x4E8E;&#x8017;&#x65F6;&#x6700;&#x957F;&#x7684;&#x5E76;&#x53D1;&#x6807;&#x8BB0;&#x548C;&#x5E76;&#x53D1;&#x6E05;&#x9664;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5783;&#x573E;&#x6536;&#x96C6;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x548C;&#x7528;&#x6237;&#x4E00;&#x8D77;&#x5E76;&#x53D1;&#x5DE5;&#x4F5C;&#x3002;&#x6240;&#x4EE5;&#x603B;&#x4F53;&#x4E0A;&#x6765;&#x770B;<strong>CMS&#x6536;&#x96C6;&#x5668;&#x7684;&#x5185;&#x5B58;&#x56DE;&#x6536;&#x548C;&#x7528;&#x6237;&#x7EBF;&#x7A0B;&#x662F;&#x4E00;&#x8D77;&#x5E76;&#x53D1;&#x5730;&#x6267;&#x884C;</strong>&#x3002;</li>
+</ul>
+<p><img src="../../assert/view/jvm_gc/gc/1_14.png" alt="GC type"></p>
+<font color="red">**&#x4F18;&#x7F3A;&#x70B9;**&#xFF1A;</font>  
+
+<ul>
+<li>&#x4F18;&#x70B9;&#xFF1A;&#x5E76;&#x53D1;&#x6536;&#x96C6;&#x505C;&#x987F;&#x4F4E;</li>
+<li>&#x7F3A;&#x70B9;&#xFF1A;&#x5E76;&#x53D1;&#x6267;&#x884C;&#xFF0C;&#x5BF9;CPU&#x8D44;&#x6E90;&#x538B;&#x529B;&#x5927;&#xFF1B;&#x91C7;&#x7528;&#x7684;&#x6807;&#x8BB0;&#x6E05;&#x9664;&#x7B97;&#x6CD5;&#x4F1A;&#x5BFC;&#x81F4;&#x5927;&#x91CF;&#x788E;&#x7247;&#x3002;-XX:CMSFullGCsBeForeCompaction&#x6765;&#x6307;&#x5B9A;&#x591A;&#x5C11;&#x6B21;CMS&#x6536;&#x96C6;&#x4E4B;&#x540E;&#xFF0C;&#x8FDB;&#x884C;&#x4E00;&#x6B21;&#x538B;&#x7F29;&#x7684;Full GC&#x3002;</li>
+</ul>
+<h4 id="serialold&#x6536;&#x96C6;&#x5668;"><a name="serialold&#x6536;&#x96C6;&#x5668;" class="anchor-navigation-ex-anchor" href="#serialold&#x6536;&#x96C6;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>SerialOld&#x6536;&#x96C6;&#x5668;</h4>
+<p><strong>&#x7406;&#x8BBA;&#x77E5;&#x9053;&#x5373;&#x53EF;&#xFF0C;&#x5B9E;&#x9645;&#x4E2D;java8&#x5DF2;&#x7ECF;&#x88AB;&#x4F18;&#x5316;&#x6389;&#x4E86;&#xFF0C;&#x6CA1;&#x6709;&#x4E86;</strong>&#x3002;<br>-Xms10m -Xmx10m -XX:+PrintGCDetails -XX:+PrintCommandLineFlags -XX:+UseSerialOldGC<br>&#x662F;Serial&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;&#x7684;&#x8001;&#x5E74;&#x4EE3;&#x7248;&#x672C;&#xFF0C;&#x540C;&#x6837;&#x662F;&#x5355;&#x7EBF;&#x7A0B;&#x7684;&#x6536;&#x96C6;&#x5668;&#xFF0C;&#x4F7F;&#x7528;<strong>&#x6807;&#x8BB0;&#x6574;&#x7406;&#x7B97;&#x6CD5;</strong>&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x8FD0;&#x884C;&#x5728;Client&#x9ED8;&#x8BA4;&#x7684;java&#x865A;&#x62DF;&#x673A;&#x9ED8;&#x8BA4;&#x7684;&#x8001;&#x5E74;&#x4EE3;&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;&#x3002;<br>&#x4E3B;&#x8981;&#x4E24;&#x4E2A;&#x7528;&#x9014;&#xFF1A;<br>1&#x3001;jdk1.5&#x4E4B;&#x524D;&#x7248;&#x672C;&#x4E2D;&#x4E0E;&#x65B0;&#x751F;&#x4EE3;&#x7684;Parallel Scavenge&#x6536;&#x96C6;&#x5668;&#x642D;&#x914D;&#x4F7F;&#x7528;&#x3002;<br>2&#x3001;&#x4F5C;&#x4E3A;&#x8001;&#x5E74;&#x4EE3;&#x7248;&#x4E2D;&#x4F7F;&#x7528;CMS&#x6536;&#x96C6;&#x5668;&#x7684;&#x540E;&#x5907;&#x5783;&#x573E;&#x6536;&#x96C6;&#x65B9;&#x6848;&#x3002;  </p>
+<h4 id="g1&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;"><a name="g1&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;" class="anchor-navigation-ex-anchor" href="#g1&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>G1&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;</h4>
+<h5 id="&#x4EE5;&#x524D;&#x6536;&#x96C6;&#x5668;&#x7279;&#x70B9;"><a name="&#x4EE5;&#x524D;&#x6536;&#x96C6;&#x5668;&#x7279;&#x70B9;" class="anchor-navigation-ex-anchor" href="#&#x4EE5;&#x524D;&#x6536;&#x96C6;&#x5668;&#x7279;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EE5;&#x524D;&#x6536;&#x96C6;&#x5668;&#x7279;&#x70B9;</h5>
+<ul>
+<li>&#x5E74;&#x8F7B;&#x4EE3;&#x548C;&#x8001;&#x5E74;&#x4EE3;&#x662F;<strong>&#x5404;&#x81EA;&#x72EC;&#x7ACB;</strong>&#x4E14;&#x8FDE;&#x7EED;&#x7684;&#x5185;&#x5B58;&#x5757;</li>
+<li>&#x5E74;&#x8F7B;&#x4EE3;&#x6536;&#x96C6;&#x4F7F;&#x7528;&#x5355;eden+SO+S&#x8FDB;&#x884C;&#x590D;&#x5236;&#x7B97;&#x6CD5;</li>
+<li>&#x8001;&#x5E74;&#x4EE3;&#x6536;&#x96C6;&#x5FC5;&#x987B;&#x626B;&#x63CF;&#x6574;&#x4E2A;&#x8001;&#x5E74;&#x4EE3;&#x533A;&#x57DF;</li>
+<li>&#x90FD;&#x662F;&#x4EE5;&#x5C3D;&#x53EF;&#x80FD;&#x5C11;&#x800C;&#x5FEB;&#x901F;&#x5730;&#x6267;&#x884C;GC&#x4E3A;&#x8BBE;&#x8BA1;&#x539F;&#x5219;</li>
+</ul>
+<h5 id="g1&#x662F;&#x4EC0;&#x4E48;"><a name="g1&#x662F;&#x4EC0;&#x4E48;" class="anchor-navigation-ex-anchor" href="#g1&#x662F;&#x4EC0;&#x4E48;"><i class="fa fa-link" aria-hidden="true"></i></a>G1&#x662F;&#x4EC0;&#x4E48;</h5>
+<p>&#x662F;&#x4E00;&#x6B3E;&#x9762;&#x5411;&#x670D;&#x52A1;&#x7AEF;&#x5E94;&#x7528;&#x7684;&#x6536;&#x96C6;&#x5668;&#xFF0C;&#x5E94;&#x7528;&#x5728;&#x591A;&#x5904;&#x7406;&#x5668;&#x548C;&#x5927;&#x5BB9;&#x91CF;&#x5185;&#x5B58;&#x73AF;&#x5883;&#x4E2D;&#x3002;&#x6709;&#x4EE5;&#x4E0B;&#x7279;&#x6027;&#xFF1A;  </p>
+<ul>
+<li>&#x50CF;CMS&#x4E00;&#x6837;&#xFF0C;&#x4E0E;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7EBF;&#x7A0B;&#x5E76;&#x53D1;&#x6267;&#x884C;</li>
+<li>&#x6574;&#x7406;&#x7A7A;&#x95F2;&#x7A7A;&#x95F4;&#x66F4;&#x5FEB;</li>
+<li>&#x9700;&#x8981;&#x66F4;&#x591A;&#x7684;&#x65F6;&#x95F4;&#x9884;&#x6D4B;GC&#x505C;&#x987F;&#x65F6;&#x95F4;</li>
+<li>&#x4E0D;&#x5E0C;&#x671B;&#x727A;&#x7272;&#x5927;&#x91CF;&#x7684;&#x541E;&#x5410;&#x6027;&#x80FD;</li>
+<li>&#x4E0D;&#x9700;&#x8981;&#x66F4;&#x5927;&#x7684;Java Heap  </li>
+</ul>
+<p>&#x8BBE;&#x8BA1;&#x76EE;&#x6807;&#x662F;&#x53D6;&#x4EE3;CMS&#x6536;&#x96C6;&#x5668;&#xFF0C;&#x4E0E;CMS&#x76F8;&#x6BD4;&#xFF0C;&#x4EE5;&#x4E0B;2&#x70B9;&#x66F4;&#x51FA;&#x8272;&#xFF1A;</p>
+<ul>
+<li>&#x662F;&#x4E00;&#x4E2A;&#x6709;&#x6574;&#x7406;&#x5185;&#x5B58;&#x8FC7;&#x7A0B;&#x7684;&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;&#xFF0C;&#x4E0D;&#x4F1A;&#x4EA7;&#x751F;&#x5F88;&#x591A;&#x5185;&#x5B58;&#x788E;&#x7247;</li>
+<li>Stop The World(STW)&#x66F4;&#x53EF;&#x63A7;&#xFF0C;G1&#x5728;&#x505C;&#x987F;&#x65F6;&#x95F4;&#x4E0A;&#x6DFB;&#x52A0;&#x4E86;&#x9884;&#x6D4B;&#x673A;&#x5236;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x671F;&#x671B;&#x505C;&#x987F;&#x65F6;&#x95F4;&#x3002;</li>
+</ul>
+<p>&#x4E3B;&#x8981;&#x6539;&#x53D8;&#x662F;&#xFF1A;</p>
+<ul>
+<li>Eden&#x3001;Survivor&#x3001;Tenured&#x7B49;&#x5185;&#x5B58;&#x533A;&#x57DF;&#x4E0D;&#x518D;&#x8FDE;&#x7EED;&#xFF0C;&#x800C;&#x662F;&#x53D8;&#x6210;&#x4E00;&#x4E2A;&#x4E2A;&#x5927;&#x5C0F;&#x4E00;&#x6837;&#x7684;region</li>
+<li>&#x6BCF;&#x4E2A;region&#x4ECE;<strong>1M</strong>&#x5230;<strong>32M</strong>&#x4E0D;&#x7B49;&#xFF0C;&#x4E00;&#x4E2A;region&#x6709;&#x53EF;&#x80FD;&#x5C5E;&#x4E8E;Eden&#x3001;Survivor&#x6216;&#x8005;Tenured&#x5185;&#x5B58;&#x533A;&#x57DF;&#x3002;</li>
+</ul>
+<p>&#x7279;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>G1&#x5145;&#x5206;&#x5229;&#x7528;&#x591A;CPU&#x3001;&#x591A;&#x6838;&#x73AF;&#x5883;&#xFF0C;&#x5C3D;&#x91CF;&#x7F29;&#x77ED;STW</li>
+<li>G1&#x6574;&#x4F53;&#x91C7;&#x7528;&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B97;&#x6CD5;&#xFF0C;&#x5C40;&#x90E8;&#x901A;&#x8FC7;&#x590D;&#x5236;&#x7B97;&#x6CD5;&#xFF0C;<strong>&#x4E0D;&#x4F1A;&#x4EA7;&#x751F;&#x5185;&#x5B58;&#x788E;&#x7247;</strong></li>
+<li>&#x5B8F;&#x89C2;&#x4E0A;G1&#x4E0D;&#x533A;&#x5206;&#x5E74;&#x8F7B;&#x4EE3;&#x548C;&#x8001;&#x5E74;&#x4EE3;&#xFF0C;&#x628A;&#x5185;&#x5B58;&#x5212;&#x5206;&#x6210;&#x591A;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x5B50;&#x533A;&#x57DF;</li>
+<li>&#x5176;&#x672C;&#x8EAB;&#x4F9D;&#x7136;&#x5728;&#x5C0F;&#x8303;&#x56F4;&#x5185;&#x8981;&#x8FDB;&#x884C;&#x5E74;&#x8F7B;&#x4EE3;&#x548C;&#x8001;&#x5E74;&#x4EE3;&#x7684;&#x533A;&#x5206;&#xFF0C;&#x4E0D;&#x518D;&#x7269;&#x7406;&#x9694;&#x79BB;&#xFF0C;&#x4F9D;&#x7136;&#x4F1A;&#x91C7;&#x7528;&#x4E0D;&#x540C;&#x7684;GC&#x65B9;&#x5F0F;&#x6765;&#x5904;&#x7406;&#x4E0D;&#x540C;&#x7684;region</li>
+<li>G1&#x53EA;&#x6709;&#x903B;&#x8F91;&#x4E0A;&#x7684;&#x5206;&#x4EE3;&#x6982;&#x5FF5;&#xFF0C;&#x6216;&#x8005;&#x8BF4;&#x6BCF;&#x4E2A;&#x5206;&#x533A;&#x90FD;&#x53EF;&#x80FD;&#x968F;G1&#x7684;&#x8FD0;&#x884C;&#x5728;&#x4E0D;&#x540C;&#x4EE3;&#x4E4B;&#x95F4;&#x524D;&#x540E;&#x5207;&#x6362;</li>
+</ul>
+<h5 id="&#x5E95;&#x5C42;&#x539F;&#x7406;"><a name="&#x5E95;&#x5C42;&#x539F;&#x7406;" class="anchor-navigation-ex-anchor" href="#&#x5E95;&#x5C42;&#x539F;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5E95;&#x5C42;&#x539F;&#x7406;</h5>
+<p>&#x533A;&#x57DF;&#x5316;&#x5185;&#x5B58;&#x5212;&#x5206;region&#xFF0C;&#x6574;&#x4F53;&#x7F16;&#x4E3A;&#x4E86;&#x4E00;&#x4E9B;&#x4E0D;&#x8FDE;&#x7EED;&#x7684;&#x5185;&#x5B58;&#x533A;&#x57DF;&#xFF0C;&#x907F;&#x514D;&#x4E86;&#x5168;&#x5185;&#x5B58;&#x533A;&#x7684;GC&#x64CD;&#x4F5C;&#x3002; </p>
+<p><img src="../../assert/view/jvm_gc/gc/1_18.png" alt="GC type"></p>
+<p>H&#x9ED8;&#x8BA4;&#x5728;&#x8001;&#x5E74;&#x533A;&#xFF0C;&#x7528;&#x4E8E;&#x653E;&#x7F6E;&#x5927;&#x5BF9;&#x8C61;&#x3002;  </p>
+<p>&#x56DE;&#x6536;&#x539F;&#x7406;&#xFF0C;&#x9488;&#x5BF9;Eden&#x533A;&#x8FDB;&#x884C;&#x6536;&#x96C6;&#xFF0C;Eden&#x533A;&#x8017;&#x5C3D;&#x540E;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x5C0F;&#x533A;&#x57DF;&#x6536;&#x96C6;+&#x5F62;&#x6210;&#x8FDE;&#x7EED;&#x7684;&#x5185;&#x5B58;&#x5757;&#xFF0C;&#x907F;&#x514D;&#x5185;&#x5B58;&#x788E;&#x7247;&#xFF1A;  </p>
+<ul>
+<li>Eden&#x533A;&#x6570;&#x636E;&#x79FB;&#x52A8;&#x5230;Survivor&#x533A;&#xFF0C;&#x5047;&#x5982;Survivor&#x533A;&#x7A7A;&#x95F4;&#x4E0D;&#x591F;&#xFF0C;Eden&#x533A;&#x6570;&#x636E;&#x4F1A;&#x90E8;&#x5206;&#x664B;&#x5347;&#x5230;Old&#x533A;</li>
+<li>Survivor&#x533A;&#x7684;&#x6570;&#x636E;&#x79FB;&#x52A8;&#x5230;&#x65B0;&#x7684;Survivor&#x533A;&#xFF0C;&#x90E8;&#x5206;&#x6570;&#x636E;&#x664B;&#x5347;&#x5230;Old&#x533A;</li>
+<li>&#x6700;&#x540E;Eden&#x533A;&#x6536;&#x62FE;&#x5E72;&#x51C0;&#x4E86;&#xFF0C;GC&#x7ED3;&#x675F;&#xFF0C;&#x7528;&#x6237;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7EE7;&#x7EED;&#x6267;&#x884C;</li>
+</ul>
+<p><img src="../../assert/view/jvm_gc/gc/1_19.png" alt="GC type"></p>
+<h5 id="&#x53C2;&#x6570;"><a name="&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53C2;&#x6570;</h5>
+<ul>
+<li>-XX:+UseG1GC</li>
+<li>-XX:G1HeapRegionSize=n&#x3002;&#x503C;&#x662F;2&#x7684;&#x5E42;&#xFF0C;&#x8303;&#x56F4;1-32MB&#xFF0C;&#x6700;&#x5927;2048</li>
+<li>-XX:MaxGCPauseMillis=n &#x6700;&#x5927;GC&#x505C;&#x987F;&#x65F6;&#x95F4;</li>
+<li>-XX:InitiatingHeapOccupancyPercent=n  &#x5806;&#x70B9;&#x7528;&#x4E86;&#x591A;&#x5C11;&#x7684;&#x65F6;&#x5019;&#x89E6;&#x53D1;GC</li>
+<li>-XX:ConcGCThreads=n &#x5E76;&#x53D1;GC&#x4F7F;&#x7528;&#x7684;&#x7EBF;&#x7A0B;&#x6570;</li>
+<li>-XX:G1ReservePercent=n &#x8BBE;&#x7F6E;&#x4F5C;&#x4E3A;&#x7A7A;&#x95F2;&#x7A7A;&#x95F4;&#x7684;&#x9884;&#x7559;&#x5185;&#x5B58;&#x767E;&#x5206;&#x6BD4;</li>
+</ul>
+<h4 id="&#x5C0F;&#x603B;&#x7ED3;"><a name="&#x5C0F;&#x603B;&#x7ED3;" class="anchor-navigation-ex-anchor" href="#&#x5C0F;&#x603B;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5C0F;&#x603B;&#x7ED3;</h4>
+<p><img src="../../assert/view/jvm_gc/gc/1_15.png" alt="GC type"></p>
+<h3 id="jvm&#x3001;gc&#x7ED3;&#x5408;spring-boot&#x5FAE;&#x670D;&#x52A1;&#x8C03;&#x53C2;"><a name="jvm&#x3001;gc&#x7ED3;&#x5408;spring-boot&#x5FAE;&#x670D;&#x52A1;&#x8C03;&#x53C2;" class="anchor-navigation-ex-anchor" href="#jvm&#x3001;gc&#x7ED3;&#x5408;spring-boot&#x5FAE;&#x670D;&#x52A1;&#x8C03;&#x53C2;"><i class="fa fa-link" aria-hidden="true"></i></a>JVM&#x3001;GC&#x7ED3;&#x5408;Spring Boot&#x5FAE;&#x670D;&#x52A1;&#x8C03;&#x53C2;</h3>
+<p>java -server [JVM&#x53C2;&#x6570;] -jar xxx.war
+jps -l
+jinfo -flags pid</p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; zxw 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x672C;&#x4E66;&#x53D1;&#x5E03;&#x65F6;&#x95F4;&#xFF1A;
+2019-11-10 14:58:01
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: JVM+GC">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="jvm.html" class="navigation navigation-next " aria-label="Next page: JVM">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"GC","level":"1.2.6.1","depth":3,"next":{"title":"JVM","level":"1.2.6.2","depth":3,"path":"view/jvm_gc/jvm.md","ref":"view/jvm_gc/jvm.md","articles":[]},"previous":{"title":"JVM+GC","level":"1.2.6","depth":2,"path":"view/jvm_gc/README.md","ref":"view/jvm_gc/README.md","articles":[{"title":"GC","level":"1.2.6.1","depth":3,"path":"view/jvm_gc/gc.md","ref":"view/jvm_gc/gc.md","articles":[]},{"title":"JVM","level":"1.2.6.2","depth":3,"path":"view/jvm_gc/jvm.md","ref":"view/jvm_gc/jvm.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-comscore","expandable-chapters-small","-fontsettings","code","copy-code-button","-search","alerts","flexible-alerts","search-pro","splitter","tbfed-pagefooter","-sharing","sharing-plus","prism","-lunr","-highlight","styles-less","toggle-chapters","multipart","ancre-navigation","pageview-count","popup","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © zxw 2019","modify_label":"本书发布时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"],"lang":{"flow":"typescript"}},"styles-less":{},"livereload":{},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"multipart":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"serif","size":12},"theme-comscore":{},"pageview-count":{},"alerts":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"expandable-chapters-small":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"},"comment":{"label":"Comment","icon":"fa fa-comments","className":"info"}},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"weibo":true,"qq":true,"all":["douban","google","qzone","linkedin"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"toggle-chapters":{}},"theme":"default","author":"zxw","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习笔记","language":"zh-hans","output.name":"site","links":{"sidebar":{"首页":"http://localhost:4000"}},"gitbook":"3.2.3","description":"好记性不如烂笔头"},"file":{"path":"view/jvm_gc/gc.md","mtime":"2019-11-10T06:58:01.419Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-13T14:19:35.130Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

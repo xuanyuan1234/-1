@@ -1,0 +1,878 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>死锁 · 学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="zxw">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-multipart/multipart.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../thread_poll/" />
+    
+    
+    <link rel="prev" href="producer_consumer.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://localhost:4000" target="_blank" class="custom-link">首页</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    面试点
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../juc/">
+            
+                <a href="../juc/">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    JUC
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../juc/volatie.html">
+            
+                <a href="../juc/volatie.html">
+            
+                    
+                        <b>1.2.1.1.</b>
+                    
+                    volatie
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../juc/cas.html">
+            
+                <a href="../juc/cas.html">
+            
+                    
+                        <b>1.2.1.2.</b>
+                    
+                    CAS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../juc/collection.html">
+            
+                <a href="../juc/collection.html">
+            
+                    
+                        <b>1.2.1.3.</b>
+                    
+                    集合类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="../juc/heap_stack.html">
+            
+                <a href="../juc/heap_stack.html">
+            
+                    
+                        <b>1.2.1.4.</b>
+                    
+                    堆栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    锁
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="fair.html">
+            
+                <a href="fair.html">
+            
+                    
+                        <b>1.2.2.1.</b>
+                    
+                    公平锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="reentrantLock.html">
+            
+                <a href="reentrantLock.html">
+            
+                    
+                        <b>1.2.2.2.</b>
+                    
+                    可重入锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="spinlock.html">
+            
+                <a href="spinlock.html">
+            
+                    
+                        <b>1.2.2.3.</b>
+                    
+                    自旋锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="readwritelock.html">
+            
+                <a href="readwritelock.html">
+            
+                    
+                        <b>1.2.2.4.</b>
+                    
+                    读写锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="countdownlatch.html">
+            
+                <a href="countdownlatch.html">
+            
+                    
+                        <b>1.2.2.5.</b>
+                    
+                    倒计时器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="cyclicbarrier.html">
+            
+                <a href="cyclicbarrier.html">
+            
+                    
+                        <b>1.2.2.6.</b>
+                    
+                    可重用屏障/栅栏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="semaphore.html">
+            
+                <a href="semaphore.html">
+            
+                    
+                        <b>1.2.2.7.</b>
+                    
+                    信号量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="block_queue.html">
+            
+                <a href="block_queue.html">
+            
+                    
+                        <b>1.2.2.8.</b>
+                    
+                    阻塞队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="producer_consumer.html">
+            
+                <a href="producer_consumer.html">
+            
+                    
+                        <b>1.2.2.9.</b>
+                    
+                    生产者+消费者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2.10" data-path="dead_lock.html">
+            
+                <a href="dead_lock.html">
+            
+                    
+                        <b>1.2.2.10.</b>
+                    
+                    死锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../thread_poll/">
+            
+                <a href="../thread_poll/">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    线程池
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../thread_poll/callable.html">
+            
+                <a href="../thread_poll/callable.html">
+            
+                    
+                        <b>1.2.3.1.</b>
+                    
+                    Callable接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../thread_poll/poll.html">
+            
+                <a href="../thread_poll/poll.html">
+            
+                    
+                        <b>1.2.3.2.</b>
+                    
+                    线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../reference/">
+            
+                <a href="../reference/">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../oom/">
+            
+                <a href="../oom/">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    OOM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../jvm_gc/">
+            
+                <a href="../jvm_gc/">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    JVM+GC
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.6.1" data-path="../jvm_gc/gc.html">
+            
+                <a href="../jvm_gc/gc.html">
+            
+                    
+                        <b>1.2.6.1.</b>
+                    
+                    GC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.2" data-path="../jvm_gc/jvm.html">
+            
+                <a href="../jvm_gc/jvm.html">
+            
+                    
+                        <b>1.2.6.2.</b>
+                    
+                    JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../linux/">
+            
+                <a href="../linux/">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    Linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../github/">
+            
+                <a href="../github/">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    GitHub
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../jvm/">
+            
+                <a href="../../jvm/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    深入理解JVM
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../jvm/mnemonics.html">
+            
+                <a href="../../jvm/mnemonics.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    助记符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../jvm/lesson_1.html">
+            
+                <a href="../../jvm/lesson_1.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    学习1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >死锁</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x6B7B;&#x9501;"><b></b>&#x6B7B;&#x9501;</a></li><ul><li><span class="title-icon "></span><a href="#&#x539F;&#x56E0;"><b></b>&#x539F;&#x56E0;</a></li><li><span class="title-icon "></span><a href="#&#x4F8B;&#x5B50;"><b></b>&#x4F8B;&#x5B50;</a></li><ul><li><span class="title-icon "></span><a href="#&#x5206;&#x6790;&#x662F;&#x5426;&#x4E3A;&#x6B7B;&#x9501;"><b></b>&#x5206;&#x6790;&#x662F;&#x5426;&#x4E3A;&#x6B7B;&#x9501;</a></li></ul></ul></ul></div><a href="#&#x6B7B;&#x9501;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x6B7B;&#x9501;"><a name="&#x6B7B;&#x9501;" class="anchor-navigation-ex-anchor" href="#&#x6B7B;&#x9501;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6B7B;&#x9501;</h1>
+<p>&#x6307;&#x4E24;&#x4E2A;&#x6216;&#x4E24;&#x4E2A;&#x4EE5;&#x4E0A;&#x7684;&#x8FDB;&#x7A0B;&#x5728;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x56E0;&#x4E89;&#x593A;&#x8D44;&#x6E90;&#x800C;&#x9020;&#x6210;&#x7684;&#x4E00;&#x79CD;&#x4E92;&#x76F8;&#x7B49;&#x5F85;&#x7684;&#x73B0;&#x8C61;&#xFF0C;&#x82E5;&#x65E0;&#x5916;&#x529B;&#x5E72;&#x6D89;&#x90A3;&#x5B83;&#x4EEC;&#x90FD;&#x5C06;&#x65E0;&#x6CD5;&#x63A8;&#x8FDB;&#x4E0B;&#x53BB;&#x3002;&#x5982;&#x679C;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#x5145;&#x8DB3;&#xFF0C;&#x8FDB;&#x7A0B;&#x7684;&#x8D44;&#x6E90;&#x8BF7;&#x6C42;&#x90FD;&#x80FD;&#x591F;&#x5F97;&#x5230;&#x6EE1;&#x8DB3;&#xFF0C;&#x6B7B;&#x9501;&#x51FA;&#x73B0;&#x7684;&#x53EF;&#x80FD;&#x6027;&#x5C31;&#x5F88;&#x4F4E;&#x3002;</p>
+<h2 id="&#x539F;&#x56E0;"><a name="&#x539F;&#x56E0;" class="anchor-navigation-ex-anchor" href="#&#x539F;&#x56E0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x539F;&#x56E0;</h2>
+<ul>
+<li>&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#x4E0D;&#x8DB3;</li>
+<li>&#x8FDB;&#x7A0B;&#x8FD0;&#x884C;&#x63A8;&#x8FDB;&#x7684;&#x987A;&#x5E8F;&#x4E0D;&#x5BF9;</li>
+<li>&#x8D44;&#x6E90;&#x5206;&#x914D;&#x4E0D;&#x5F53;</li>
+</ul>
+<h2 id="&#x4F8B;&#x5B50;"><a name="&#x4F8B;&#x5B50;" class="anchor-navigation-ex-anchor" href="#&#x4F8B;&#x5B50;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F8B;&#x5B50;</h2>
+<pre class="language-"><code class="lang-java"><span class="token comment">//&#x7EBF;&#x7A0B;&#x8D44;&#x6E90;&#x7C7B;</span>
+<span class="token keyword">class</span> <span class="token class-name">ThreadLockDemo</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> lockA<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> lockB<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">ThreadLockDemo</span><span class="token punctuation">(</span><span class="token class-name">String</span> lockA<span class="token punctuation">,</span> <span class="token class-name">String</span> lockB<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>lockA <span class="token operator">=</span> lockA<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>lockB <span class="token operator">=</span> lockB<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>lockA<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;\t &#x6301;&#x6709;&quot;</span> <span class="token operator">+</span> lockA <span class="token operator">+</span> <span class="token string">&quot; &#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&quot;</span> <span class="token operator">+</span> lockB<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>SECONDS<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>lockB<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;\t &#x6301;&#x6709;&quot;</span> <span class="token operator">+</span> lockB <span class="token operator">+</span> <span class="token string">&quot; &#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&quot;</span> <span class="token operator">+</span> lockA<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">/**
+ * &#x6B7B;&#x9501;&#x4F8B;&#x5B50;
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DeadLockDemo</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">String</span> lockA <span class="token operator">=</span> <span class="token string">&quot;lockA&quot;</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> lockB <span class="token operator">=</span> <span class="token string">&quot;lockB&quot;</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ThreadLockDemo</span><span class="token punctuation">(</span>lockA<span class="token punctuation">,</span> lockB<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&quot;AAA&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ThreadLockDemo</span><span class="token punctuation">(</span>lockB<span class="token punctuation">,</span> lockA<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&quot;BBB&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x5206;&#x6790;&#x662F;&#x5426;&#x4E3A;&#x6B7B;&#x9501;"><a name="&#x5206;&#x6790;&#x662F;&#x5426;&#x4E3A;&#x6B7B;&#x9501;" class="anchor-navigation-ex-anchor" href="#&#x5206;&#x6790;&#x662F;&#x5426;&#x4E3A;&#x6B7B;&#x9501;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5206;&#x6790;&#x662F;&#x5426;&#x4E3A;&#x6B7B;&#x9501;</h3>
+<h4 id="idea&#x4E2D;terminal&#x8F93;&#x5165;jps--l&#x67E5;&#x770B;&#x5F53;&#x524D;&#x8FD0;&#x884C;&#x8FDB;&#x7A0B;"><a name="idea&#x4E2D;terminal&#x8F93;&#x5165;jps--l&#x67E5;&#x770B;&#x5F53;&#x524D;&#x8FD0;&#x884C;&#x8FDB;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#idea&#x4E2D;terminal&#x8F93;&#x5165;jps--l&#x67E5;&#x770B;&#x5F53;&#x524D;&#x8FD0;&#x884C;&#x8FDB;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>idea&#x4E2D;Terminal&#x8F93;&#x5165;jps -l&#x67E5;&#x770B;&#x5F53;&#x524D;&#x8FD0;&#x884C;&#x8FDB;&#x7A0B;</h4>
+<ul>
+<li>jps &#x7C7B;&#x4F3C;&#x4E8E;linux&#x4E0B;&#x7684; ps -ef | grep xxx&#xFF0C;&#x5B83;&#x662F;windows&#x4E0B;&#x7684;&#xFF0C;&#x53EA;&#x662F;&#x7528;&#x4E8E;&#x67E5;&#x770B;java&#x7684;&#x3002;</li>
+</ul>
+<pre class="language-"><code class="lang-java"><span class="token class-name">F</span><span class="token operator">:</span>\<span class="token number">2019</span>H2\java_code<span class="token operator">&gt;</span>jps <span class="token operator">-</span>l
+<span class="token number">12368</span> org<span class="token punctuation">.</span>jetbrains<span class="token punctuation">.</span>idea<span class="token punctuation">.</span>maven<span class="token punctuation">.</span>server<span class="token punctuation">.</span><span class="token class-name">RemoteMavenServer</span>
+<span class="token number">15744</span> sun<span class="token punctuation">.</span>tools<span class="token punctuation">.</span>jps<span class="token punctuation">.</span><span class="token class-name">Jps</span>
+<span class="token number">8368</span>
+<span class="token number">9120</span> org<span class="token punctuation">.</span>jetbrains<span class="token punctuation">.</span>jps<span class="token punctuation">.</span>cmdline<span class="token punctuation">.</span><span class="token class-name">Launcher</span>
+<span class="token number">6484</span> com<span class="token punctuation">.</span>zhou<span class="token punctuation">.</span>java<span class="token punctuation">.</span>lock<span class="token punctuation">.</span><span class="token class-name">DeadLockDemo</span>
+<span class="token number">10924</span> org<span class="token punctuation">.</span>jetbrains<span class="token punctuation">.</span>jps<span class="token punctuation">.</span>cmdline<span class="token punctuation">.</span><span class="token class-name">Launcher</span>
+</code></pre>
+<h4 id="&#x67E5;&#x770B;6484&#x8FDB;&#x7A0B;&#x7684;&#x6267;&#x884C;&#x60C5;&#x51B5;&#xFF0C;&#x4F7F;&#x7528;jstack-6484"><a name="&#x67E5;&#x770B;6484&#x8FDB;&#x7A0B;&#x7684;&#x6267;&#x884C;&#x60C5;&#x51B5;&#xFF0C;&#x4F7F;&#x7528;jstack-6484" class="anchor-navigation-ex-anchor" href="#&#x67E5;&#x770B;6484&#x8FDB;&#x7A0B;&#x7684;&#x6267;&#x884C;&#x60C5;&#x51B5;&#xFF0C;&#x4F7F;&#x7528;jstack-6484"><i class="fa fa-link" aria-hidden="true"></i></a>&#x67E5;&#x770B;6484&#x8FDB;&#x7A0B;&#x7684;&#x6267;&#x884C;&#x60C5;&#x51B5;&#xFF0C;&#x4F7F;&#x7528;jstack 6484</h4>
+<pre class="language-"><code class="lang-java"><span class="token class-name">Java</span> stack information <span class="token keyword">for</span> the threads listed above<span class="token operator">:</span>
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
+<span class="token string">&quot;BBB&quot;</span><span class="token operator">:</span>
+        at com<span class="token punctuation">.</span>zhou<span class="token punctuation">.</span>java<span class="token punctuation">.</span>lock<span class="token punctuation">.</span><span class="token class-name">ThreadLockDemo</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">DeadLockDemo</span><span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">27</span><span class="token punctuation">)</span>
+        <span class="token operator">-</span> waiting <span class="token keyword">to</span> lock <span class="token generics"><span class="token punctuation">&lt;</span>0x000000074051d908<span class="token punctuation">&gt;</span></span> <span class="token punctuation">(</span>a java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span><span class="token class-name">String</span><span class="token punctuation">)</span>
+        <span class="token operator">-</span> locked <span class="token generics"><span class="token punctuation">&lt;</span>0x000000074051d940<span class="token punctuation">&gt;</span></span> <span class="token punctuation">(</span>a java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span><span class="token class-name">String</span><span class="token punctuation">)</span>
+        at java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">748</span><span class="token punctuation">)</span>
+<span class="token string">&quot;AAA&quot;</span><span class="token operator">:</span>
+        at com<span class="token punctuation">.</span>zhou<span class="token punctuation">.</span>java<span class="token punctuation">.</span>lock<span class="token punctuation">.</span><span class="token class-name">ThreadLockDemo</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">DeadLockDemo</span><span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">27</span><span class="token punctuation">)</span>
+        <span class="token operator">-</span> waiting <span class="token keyword">to</span> lock <span class="token generics"><span class="token punctuation">&lt;</span>0x000000074051d940<span class="token punctuation">&gt;</span></span> <span class="token punctuation">(</span>a java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span><span class="token class-name">String</span><span class="token punctuation">)</span>
+        <span class="token operator">-</span> locked <span class="token generics"><span class="token punctuation">&lt;</span>0x000000074051d908<span class="token punctuation">&gt;</span></span> <span class="token punctuation">(</span>a java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span><span class="token class-name">String</span><span class="token punctuation">)</span>
+        at java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">748</span><span class="token punctuation">)</span>
+
+<span class="token class-name">Found</span> <span class="token number">1</span> deadlock<span class="token punctuation">.</span>
+</code></pre>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; zxw 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x672C;&#x4E66;&#x53D1;&#x5E03;&#x65F6;&#x95F4;&#xFF1A;
+2019-11-13 22:13:30
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="producer_consumer.html" class="navigation navigation-prev " aria-label="Previous page: 生产者+消费者">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../thread_poll/" class="navigation navigation-next " aria-label="Next page: 线程池">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"死锁","level":"1.2.2.10","depth":3,"next":{"title":"线程池","level":"1.2.3","depth":2,"path":"view/thread_poll/README.md","ref":"view/thread_poll/README.md","articles":[{"title":"Callable接口","level":"1.2.3.1","depth":3,"path":"view/thread_poll/callable.md","ref":"view/thread_poll/callable.md","articles":[]},{"title":"线程池","level":"1.2.3.2","depth":3,"path":"view/thread_poll/poll.md","ref":"view/thread_poll/poll.md","articles":[]}]},"previous":{"title":"生产者+消费者","level":"1.2.2.9","depth":3,"path":"view/lock/producer_consumer.md","ref":"view/lock/producer_consumer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","expandable-chapters-small","-fontsettings","code","copy-code-button","-search","alerts","flexible-alerts","search-pro","splitter","tbfed-pagefooter","-sharing","sharing-plus","prism","-lunr","-highlight","styles-less","toggle-chapters","multipart","ancre-navigation","pageview-count","popup","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © zxw 2019","modify_label":"本书发布时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"],"lang":{"flow":"typescript"}},"styles-less":{},"livereload":{},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"multipart":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"serif","size":12},"theme-comscore":{},"pageview-count":{},"alerts":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"expandable-chapters-small":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"},"comment":{"label":"Comment","icon":"fa fa-comments","className":"info"}},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"weibo":true,"qq":true,"all":["douban","google","qzone","linkedin"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"toggle-chapters":{}},"theme":"default","author":"zxw","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习笔记","language":"zh-hans","output.name":"site","links":{"sidebar":{"首页":"http://localhost:4000"}},"gitbook":"3.2.3","description":"好记性不如烂笔头"},"file":{"path":"view/lock/dead_lock.md","mtime":"2019-11-13T14:13:30.717Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-13T14:19:35.130Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
